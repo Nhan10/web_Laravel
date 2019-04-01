@@ -14,6 +14,6 @@ class HinhAnh extends Model
 
     public function sanPham()
     {
-        return $this->belongsTo('App\SanPham','MaSP','MaHA');
+        return $this->belongsTo('App\SanPham','MaSP');
     }
 }

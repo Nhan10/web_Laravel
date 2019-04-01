@@ -19,7 +19,12 @@ class CreatePhieuNhapsTable extends Migration
             $table->foreign('MaND')
                 ->references('MaND')->on('NguoiDung')
                 ->onDelete('cascade');
+            $table->unsignedBigInteger('MaNCC');
+            $table->foreign('MaNCC')
+                ->references('MaNCC')->on('NhaCungCap')
+                ->onDelete('cascade');
             $table->dateTime('NgayNhap');
+            $table->text('GhiChu');
             $table->timestamps();
         });
     }

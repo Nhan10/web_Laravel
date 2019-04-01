@@ -3,10 +3,23 @@
 namespace App\Http\Controllers;
 
 use App\SanPham;
+use App\LoaiSP;
+use App\TacGia;
+use App\HinhAnh;
 use Illuminate\Http\Request;
 
 class SanPhamController extends Controller
 {
+    public function __construct()
+    {
+        view()->composer(['admin.sanpham.create','admin.sanpham.edit'],function ($view){
+            $loaiSPs = LoaiSP::all();
+            $tacGias = TacGia::all();
+            $view->with('loaiSPs',$loaiSPs);
+            $view->with('tacGias',$tacGias);
+        });
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -14,7 +27,8 @@ class SanPhamController extends Controller
      */
     public function index()
     {
-        //
+        $sanphams = SanPham::all();
+        return view('admin.sanpham.list',compact('sanphams'));
     }
 
     /**
@@ -24,7 +38,7 @@ class SanPhamController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.sanpham.create');
     }
 
     /**
@@ -35,7 +49,34 @@ class SanPhamController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $sanpham = new SanPham();
+        $sanpham->MaLoai = $request->maLoai;
+        $sanpham->TenSP = $request->tenSP;
+        $sanpham->Gia = $request->gia;
+        $sanpham->SoLuong = 0;
+        $sanpham->MaTG = $request->maTG;
+        $sanpham->MoTa = $request->moTa;
+        $sanpham->SoTrang = $request->soTrang;
+        $sanpham->LoaiBia = $request->loaiBia;
+        $sanpham->KichThuoc = $request->kichThuoc;
+        $sanpham->CanNang = $request->canNang;
+        $sanpham->NgonNgu = $request->ngonNgu;
+        $sanpham->NXB = $request->nXB;
+        $sanpham->NamXB = $request->namXB;
+        $sanpham->DichGia = $request->dichGia;
+        $sanpham->save();
+        if($request->file('file_upload')){
+            foreach($request->file('file_upload') as $hinhanh){
+                $duongdan=$hinhanh->store('images');
+                $img= HinhAnh::create([
+                    'DuongDan' =>$duongdan,
+                    'MaSP' => $sanpham->MaSP
+                ]);
+            }
+        }
+        return redirect()
+            ->route('sanpham.index')
+            ->with('success','Tạo sản phẩm thành công');
     }
 
     /**
@@ -44,9 +85,10 @@ class SanPhamController extends Controller
      * @param  \App\SanPham  $sanPhams
      * @return \Illuminate\Http\Response
      */
-    public function show(SanPham $sanPhams)
+    public function show($MaSP)
     {
-        //
+        $sanpham = SanPham::find($MaSP);
+        return view('admin.sanpham.show',compact('sanpham'));
     }
 
     /**
@@ -55,9 +97,10 @@ class SanPhamController extends Controller
      * @param  \App\SanPham  $sanPhams
      * @return \Illuminate\Http\Response
      */
-    public function edit(SanPham $sanPhams)
+    public function edit($MaSP)
     {
-        //
+        $sanpham = SanPham::find($MaSP);
+        return view('admin.sanpham.edit',compact('sanpham'));
     }
 
     /**
@@ -67,9 +110,36 @@ class SanPhamController extends Controller
      * @param  \App\SanPham  $sanPhams
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, SanPham $sanPhams)
+    public function update(Request $request, $MaSP)
     {
-        //
+        $sanpham = SanPham::find($MaSP);
+        $sanpham->MaLoai = $request->maLoai;
+        $sanpham->TenSP = $request->tenSP;
+        $sanpham->Gia = $request->gia;
+        $sanpham->SoLuong = 0;
+        $sanpham->MaTG = $request->maTG;
+        $sanpham->MoTa = $request->moTa;
+        $sanpham->SoTrang = $request->soTrang;
+        $sanpham->LoaiBia = $request->loaiBia;
+        $sanpham->KichThuoc = $request->kichThuoc;
+        $sanpham->CanNang = $request->canNang;
+        $sanpham->NgonNgu = $request->ngonNgu;
+        $sanpham->NXB = $request->nXB;
+        $sanpham->NamXB = $request->namXB;
+        $sanpham->DichGia = $request->dichGia;
+        $sanpham->save();
+        if($request->file('file_upload')){
+            foreach($request->file('file_upload') as $hinhanh){
+                $duongdan=$hinhanh->store('images');
+                $img= HinhAnh::create([
+                    'DuongDan' =>$duongdan,
+                    'MaSP' => $sanpham->MaSP
+                ]);
+            }
+        }
+        return redirect()
+            ->route('sanpham.index')
+            ->with('success','Sửa sản phẩm "'.$sanpham->TenSP.'" thành công');
     }
 
     /**
@@ -78,8 +148,17 @@ class SanPhamController extends Controller
      * @param  \App\SanPham  $sanPhams
      * @return \Illuminate\Http\Response
      */
-    public function destroy(SanPham $sanPhams)
+    public function destroy($MaSP)
     {
-        //
+        $sanpham = SanPham::find($MaSP);
+        if(count($sanpham->cTPhieuNhaps)>0 || count($sanpham->cTDonHangs)>0 || count($sanpham->binhLuans)>0){
+            return redirect()
+                ->route('sanpham.index')
+                ->with('error','Khổng thể xóa sản phẩm "'.$sanpham->TenSP.'"!');
+        }
+        $sanpham->delete();
+        return redirect()
+            ->route('sanpham.index')
+            ->with('success','Xóa thành công sản phẩm "'.$sanpham->TenSP.'"!');
     }
 }

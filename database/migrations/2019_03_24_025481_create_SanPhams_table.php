@@ -35,10 +35,6 @@ class CreateSanPhamsTable extends Migration
             $table->string('NXB');
             $table->year('NamXB');
             $table->string('DichGia');
-            $table->unsignedBigInteger('MaNCC');
-            $table->foreign('MaNCC')
-                ->references('MaNCC')->on('NhaCungCap')
-                ->onDelete('cascade');
             $table->timestamps();
         });
     }

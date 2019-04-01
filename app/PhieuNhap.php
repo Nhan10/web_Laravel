@@ -10,7 +10,7 @@ class PhieuNhap extends Model
 
     protected $primaryKey = 'MaPN';
 
-    protected $fillable = ['MaND','NgayNhap'];
+    protected $fillable = ['MaND','MaNCC','NgayNhap','GhiChu'];
 
     public function nguoiDung()
     {
@@ -20,5 +20,10 @@ class PhieuNhap extends Model
     public function cTPhieuNhaps()
     {
         return $this->hasMany('App\CTPhieuNhap','MaPN');
+    }
+
+    public function nhaCungCap()
+    {
+        return $this->belongsTo('App\NhaCungCap','MaNCC');
     }
 }

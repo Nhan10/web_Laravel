@@ -12,7 +12,7 @@ class SanPham extends Model
 
     protected $fillable = [
         'MaLoai','TenSP','Gia','SoLuong','MaTG','MoTa','SoTrang','LoaiBia','KichThuoc',
-        'CanNang','NgonNgu','NXB','NamXB','DichGia','MaNCC'
+        'CanNang','NgonNgu','NXB','NamXB','DichGia'
     ];
 
     public function loaiSP()
@@ -25,11 +25,6 @@ class SanPham extends Model
         return $this->hasMany('App\HinhAnh','MaSP');
     }
 
-    public function nhaCungCap()
-    {
-        return $this->belongsTo('App\NhaCungCap','MaNCC');
-    }
-
     public function cTDonHangs()
     {
         return $this->hasMany('App\CTDonHang','MaSP');
@@ -37,7 +32,7 @@ class SanPham extends Model
 
     public function tacGia()
     {
-        return $this->belongsTo('App\TacGia','MaTG','MaSP');
+        return $this->belongsTo('App\TacGia','MaTG');
     }
 
     public function binhLuans()

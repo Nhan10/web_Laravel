@@ -39,14 +39,14 @@
                 <a class="collapse-item" href="{{Route('nhomsanpham.index')}}">Nhóm sản phẩm</a>
                 <a class="collapse-item" href="{{Route('loaisanpham.index')}}">Loại sản phẩm</a>
                 <a class="collapse-item" href="{{Route('tacgia.index')}}">Tác giả</a>
-                <a class="collapse-item" href="">Nhà cung cấp</a>
+                <a class="collapse-item" href="{{Route('nhacungcap.index')}}">Nhà cung cấp</a>
             </div>
         </div>
     </li>
 
     <!-- Nav Item - Product -->
     <li class="nav-item">
-        <a class="nav-link" href="charts.html">
+        <a class="nav-link" href="{{Route('sanpham.index')}}">
             <i class="fas fa-fw fa-chart-area"></i>
             <span>Quản lý sản phẩm</span></a>
     </li>

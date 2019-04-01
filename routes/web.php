@@ -52,4 +52,23 @@ Route::prefix('admin')->group(function (){
         Route::DELETE('/destroy/{MaTG}','TacGiaController@destroy')->name('tacgia.destroy');
     });
 
+    Route::prefix('nhacungcap')->group(function (){
+        Route::get('/danhsach','NhaCungCapController@index')->name('nhacungcap.index');
+        Route::get('/create','NhaCungCapController@create')->name('nhacungcap.create');
+        Route::post('/create','NhaCungCapController@store')->name('nhacungcap.store');
+        Route::get('/edit/{MaNCC}','NhaCungCapController@edit')->name('nhacungcap.edit');
+        Route::PUT('/edit/{MaNCC}','NhaCungCapController@update')->name('nhacungcap.update');
+        Route::DELETE('/destroy/{MaNCC}','NhaCungCapController@destroy')->name('nhacungcap.destroy');
+    });
+
+    Route::prefix('sanpham')->group(function (){
+        Route::get('/danhsach','SanPhamController@index')->name('sanpham.index');
+        Route::get('/create','SanPhamController@create')->name('sanpham.create');
+        Route::post('/create','SanPhamController@store')->name('sanpham.store');
+        Route::get('/edit/{MaSP}','SanPhamController@edit')->name('sanpham.edit');
+        Route::get('/show/{MaSP}','SanPhamController@show')->name('sanpham.show');
+        Route::PUT('/edit/{MaSP}','SanPhamController@update')->name('sanpham.update');
+        Route::DELETE('/destroy/{MaSP}','SanPhamController@destroy')->name('sanpham.destroy');
+    });
+
 });

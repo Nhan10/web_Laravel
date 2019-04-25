@@ -1,11 +1,11 @@
 <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
     <!-- Sidebar - Brand -->
-    <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+    <a class="sidebar-brand d-flex align-items-center justify-content-center" href="{{route('home.index')}}">
         <div class="sidebar-brand-icon rotate-n-15">
             <i class="fas fa-laugh-wink"></i>
         </div>
-        <div class="sidebar-brand-text mx-3">Bookstore <sup>2</sup></div>
+        <div class="sidebar-brand-text mx-3"><img src="{{asset('image/logo-white.png')}}" width="250" alt=""></div>
     </a>
 
     <!-- Divider -->
@@ -49,6 +49,20 @@
         <a class="nav-link" href="{{Route('sanpham.index')}}">
             <i class="fas fa-fw fa-chart-area"></i>
             <span>Quản lý sản phẩm</span></a>
+    </li>
+
+    <!-- Nav Item - Product -->
+    <li class="nav-item">
+        <a class="nav-link" href="{{Route('nguoidung.index')}}">
+            <i class="fas fa-fw fa-chart-area"></i>
+            <span>Quản lý người dùng</span></a>
+    </li>
+
+    <!-- Nav Item - Product -->
+    <li class="nav-item">
+        <a class="nav-link" href="{{route('nhaphang.index')}}">
+            <i class="fas fa-fw fa-chart-area"></i>
+            <span>Nhập hàng</span></a>
     </li>
 
     <!-- Nav Item - Utilities Collapse Menu -->

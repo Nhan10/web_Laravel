@@ -10,7 +10,7 @@ class TacGia extends Model
 
     protected $primaryKey = 'MaTG';
 
-    protected $fillable = ['TenTG','DiaChi','SDT'];
+    protected $fillable = ['TenTG','DiaChi','SDT','GioiThieu'];
 
     public function sanPhams()
     {

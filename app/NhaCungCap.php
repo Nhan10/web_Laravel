@@ -12,8 +12,8 @@ class NhaCungCap extends Model
 
     protected $fillable = ['TenNCC','DiaChi','SDT'];
 
-    public function phieuNhaps()
+    public function cTphieuNhaps()
     {
-        return $this->hasMany('App\PhieuNhap','MaNCC');
+        return $this->hasMany('App\CTPhieuNhap','MaNCC');
     }
 }

@@ -17,7 +17,7 @@ class SanPham extends Model
 
     public function loaiSP()
     {
-        return $this->belongsTo('App\LoaiSP','MaLoai','MaSP');
+        return $this->belongsTo('App\LoaiSP','MaLoai');
     }
 
     public function hinhAnhs()

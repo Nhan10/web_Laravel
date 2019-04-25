@@ -4,6 +4,8 @@ namespace App;
 
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
+use DB;
+use Mail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class NguoiDung extends Authenticatable
@@ -17,6 +19,7 @@ class NguoiDung extends Authenticatable
      */
     protected $table = 'nguoidung';
     protected $primaryKey = 'MaND';
+//    protected $guarded = 'nguoidungs';
     protected $fillable = [
         'TenND', 'email', 'password','DiaChi','SDT','active','MaLND'
     ];
@@ -41,7 +44,7 @@ class NguoiDung extends Authenticatable
 
     public function loaiND()
     {
-        return $this->belongsTo('App\LoaiND','MaLND','MaND');
+        return $this->belongsTo('App\LoaiND','MaLND');
     }
 
     public function xacThucNDs()
@@ -63,4 +66,41 @@ class NguoiDung extends Authenticatable
     {
         return $this->hasMany('App\DonHang','MaND');
     }
+
+    public function donHangNVGHs()
+    {
+        return $this->hasMany('App\DonHang','MaNVGH');
+    }
+
+    public function donHangNVKs()
+    {
+        return $this->hasMany('App\DonHang','MaNVK');
+    }
+
+    public function donHangQLs()
+    {
+        return $this->hasMany('App\DonHang','MaQL');
+    }
+
+    public function donHangQTVs()
+    {
+        return $this->hasMany('App\DonHang','MaQTV');
+    }
+
+    public function is_admin()
+    {
+        return $this->getAttribute('MaLND');
+    }
+
+    public function send_code_mail(NguoiDung $nguoiDung){
+        $nguoiDung['link'] = str_random(30);
+
+        DB::table('xacthucnd')->insert(['MaND'=>$nguoiDung['MaND'],'token'=>$nguoiDung['link']]);
+
+        Mail::send('front_end.pages.activation1', $nguoiDung->toArray(), function($message) use ($nguoiDung){
+            $message->to($nguoiDung['email']);
+            $message->subject('Bookstore - Xác thực người dùng');
+        });
+    }
+
 }

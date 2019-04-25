@@ -10,7 +10,7 @@ class CTPhieuNhap extends Model
 
     protected $primaryKey = 'MaCTPN';
 
-    protected $fillable = ['MaPN','MaSP','GiaNhap','SoLuong','GhiChu'];
+    protected $fillable = ['MaPN','MaSP','MaNCC','GiaNhap','SoLuong','GhiChu'];
 
     public function sanPham()
     {
@@ -20,5 +20,10 @@ class CTPhieuNhap extends Model
     public function phieuNhap()
     {
         return $this->belongsTo('App\PhieuNhap','MaPN','MaCTPN');
+    }
+
+    public function nhaCungCap()
+    {
+        return $this->belongsTo('App\NhaCungCap','MaNCC');
     }
 }

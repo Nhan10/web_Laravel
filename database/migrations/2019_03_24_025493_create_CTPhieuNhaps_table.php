@@ -23,6 +23,10 @@ class CreateCTPhieuNhapsTable extends Migration
             $table->foreign('MaSP')
                 ->references('MaSP')->on('SanPham')
                 ->onDelete('cascade');
+            $table->unsignedBigInteger('MaNCC');
+            $table->foreign('MaNCC')
+                ->references('MaNCC')->on('nhacungcap')
+                ->onDelete('cascade');
             $table->double('GiaNhap');
             $table->integer('SoLuong');
             $table->text('GhiChu');

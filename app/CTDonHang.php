@@ -10,7 +10,7 @@ class CTDonHang extends Model
 
     protected $primaryKey = 'MaCTDH';
 
-    protected $fillable = ['MaDH','MaSP','Gia','SoLuong'];
+    protected $fillable = ['MaDH','MaSP','Gia','TongTienCT','SoLuong'];
 
     public function sanPham()
     {

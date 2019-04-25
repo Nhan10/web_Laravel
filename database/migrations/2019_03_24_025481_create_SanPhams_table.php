@@ -34,7 +34,7 @@ class CreateSanPhamsTable extends Migration
             $table->string('NgonNgu');
             $table->string('NXB');
             $table->year('NamXB');
-            $table->string('DichGia');
+            $table->string('DichGia')->nullable();
             $table->timestamps();
         });
     }

@@ -18,6 +18,7 @@ class CreateTacGiasTable extends Migration
             $table->string('TenTG');
             $table->string('DiaChi');
             $table->string('SDT',15);
+            $table->text('GioiThieu')->nullable();
             $table->timestamps();
         });
     }

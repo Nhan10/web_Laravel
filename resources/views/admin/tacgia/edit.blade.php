@@ -43,6 +43,10 @@
                     <label for="text" class="text-dark">Số điện thoại:</label>
                     <input required type="text" class="form-control" id="text" value="{{$tacgia->SDT}}" name="sDT">
                 </div>
+                <div class="form-group">
+                    <label for="text" class="text-dark">Giới thiệu:</label>
+                    <textarea name="gioiThieu" class="form-control" cols="30" rows="10">{{$tacgia->GioiThieu}}</textarea>
+                </div>
 
                 <button type="submit" class="btn btn-primary">Sửa</button>
                 <a href="{{ route('tacgia.index')}}" class="text-blue-800">Quay lại</a>

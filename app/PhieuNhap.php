@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Session;
 
 class PhieuNhap extends Model
 {
@@ -10,7 +11,7 @@ class PhieuNhap extends Model
 
     protected $primaryKey = 'MaPN';
 
-    protected $fillable = ['MaND','MaNCC','NgayNhap','GhiChu'];
+    protected $fillable = ['MaND','NgayNhap','GhiChu'];
 
     public function nguoiDung()
     {
@@ -22,8 +23,20 @@ class PhieuNhap extends Model
         return $this->hasMany('App\CTPhieuNhap','MaPN');
     }
 
-    public function nhaCungCap()
+    public static function addToPN($MaSP,$MaNCC,$GiaNhap,$SoLuong)
     {
-        return $this->belongsTo('App\NhaCungCap','MaNCC');
+        $ctphieunhap = Session::get('ctphieunhap');
+        $ctphieunhap[$MaSP] = [
+            "MaSP" => $MaSP,
+            "MaNCC" => $MaNCC,
+            "GiaNhap" => $GiaNhap,
+            "SoLuong" => $SoLuong,
+            "GhiChu" => '',
+        ];
+
+        Session::put('ctphieunhap', $ctphieunhap);
+        //dd(Session::get('cart'));
+//        return redirect()->back();
     }
+
 }

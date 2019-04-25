@@ -57,6 +57,7 @@ class TacGiaController extends Controller
         $tacgia->TenTG = $request->tenTG;
         $tacgia->DiaChi = $request->diaChi;
         $tacgia->SDT = $request->sDT;
+        $tacgia->GioiThieu = $request->gioiThieu;
         $tacgia->save();
         return redirect()
             ->route('tacgia.index')
@@ -116,6 +117,7 @@ class TacGiaController extends Controller
         $tacgia->TenTG = $request->tenTG;
         $tacgia->DiaChi = $request->diaChi;
         $tacgia->SDT = $request->sDT;
+        $tacgia->GioiThieu = $request->gioiThieu;
         $tacgia->save();
         return redirect()
             ->route('tacgia.index')

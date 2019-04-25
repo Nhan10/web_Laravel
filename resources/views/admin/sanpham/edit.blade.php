@@ -33,7 +33,7 @@
                 @csrf
                 <div class="form-group">
                     <label for="text" class="text-dark">Mã loại:</label>
-                    <select class="form-control" name="maLoai" >
+                    <select class="custom-select" name="maLoai" >
                         @foreach($loaiSPs as $loaisp)
                             <option value="{{$loaisp->MaLoai}}"
                                     @if(old($loaisp->MaLoai, isset($sanpham) ? $sanpham->MaLoai : '') == $loaisp->MaLoai)
@@ -53,7 +53,7 @@
                 </div>
                 <div class="form-group">
                     <label for="text" class="text-dark">Mã tác giả:</label>
-                    <select class="form-control" name="maTG" >
+                    <select class="custom-select" name="maTG" >
                         @foreach($tacGias as $tacGia)
                             <option value="{{$tacGia->MaTG}}"
                                     @if(old($tacGia->MaTG, isset($sanpham) ? $sanpham->MaTG : '') == $tacGia->MaTG)

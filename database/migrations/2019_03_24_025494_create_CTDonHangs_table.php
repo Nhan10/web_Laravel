@@ -24,6 +24,7 @@ class CreateCTDonHangsTable extends Migration
                 ->references('MaSP')->on('SanPham')
                 ->onDelete('cascade');
             $table->double('Gia');
+            $table->double('TongTienCT');
             $table->integer('SoLuong');
             $table->timestamps();
         });

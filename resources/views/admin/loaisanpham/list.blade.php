@@ -28,7 +28,7 @@
     <!-- DataTales Example -->
     <div class="card shadow mb-4">
         <div class="card-header py-3">
-            <a href="{{Route('loaisanpham.create')}}" class="m-0 font-weight-bold btn btn-danger">Thêm mới</a>
+            <a href="{{Route('loaisanpham.create')}}" class="m-0 font-weight-bold btn btn-success">Thêm mới</a>
         </div>
         <div class="card-body">
             <div class="table-responsive">
@@ -49,11 +49,11 @@
                             <th>{{$loaisp->TenLoai}}</th>
                             <th>{{$loaisp->nhomSP->TenNSP}}</th>
                             <th>
-                                <a href="{{route('loaisanpham.edit',$loaisp->MaLoai)}}" class="btn btn-facebook">Edit</a>
+                                <a href="{{route('loaisanpham.edit',$loaisp->MaLoai)}}" class="btn btn-facebook"><i class="fas fa-edit"></i></a>
                                 <form class="d-inline" action="{{route('loaisanpham.destroy',$loaisp->MaLoai)}}" method="post">
                                     @method('DELETE')
                                     @csrf
-                                    <button class="btn btn-danger"><i style="color: #ffffff" class="fa fa-trash">  </i> Delete</button>
+                                    <button class="btn btn-danger"><i style="color: #ffffff" class="fa fa-trash">  </i></button>
                                 </form>
                             </th>
                         </tr>

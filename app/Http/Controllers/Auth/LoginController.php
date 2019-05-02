@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Cart;
 
 class LoginController extends Controller
 {
@@ -43,18 +44,34 @@ class LoginController extends Controller
     {
         return '/trangchu';
     }
+    protected function validateLogin(Request $request)
+    {
+        $this->validate($request, [
+            'email' => 'required',
+            'password' => 'required|min:8',
+        ],[
+            'required' => ':attribute không thể bỏ trống!',
+            'min' => ':attribute phải lớn hơn :min ký tự',
+            'failed' => 'Vui lòng kiểm tra lại :attrubute!.',
+        ],[
+            'email' => 'Email',
+            'password' => 'Mật khẩu'
+        ]);
+    }
 
     public function login(Request $request)
     {
+        $this->validateLogin($request);
         if (Auth::attempt(['email'=>$request->email,'password'=>$request->password,'MaLND'=>1,'active'=>1])){
-//            if (Cart::content()->count()>0)
-//                return view('front_end.pages.cart');
+//            if (Cart::getContent()->count()>0)
+//                redirect()->route('cart.index');
 //            else
-                return redirect()->route('home.index');
+                return redirect()->intended(route('home.index'));
         }elseif (Auth::attempt(['email'=>$request->email,'password'=>$request->password,'MaLND'=>2,'active'=>1])){
             return redirect()->route('danhmuc.index');
         } else{
-            return redirect()->route('login')->with('error', 'Incorrect information!!!');
+            //chưa xử lý đc :(
+            return redirect()->route('login')->with('error', 'Không tìm thấy tài khoản của bạn!');
         }
 //        return view('front_end.pages.cart');
     }

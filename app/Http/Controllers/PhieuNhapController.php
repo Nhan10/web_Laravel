@@ -45,7 +45,7 @@ class PhieuNhapController extends Controller
         return view('admin.nhaphang.nhaphang',compact('sps'));
     }
 
-    public function nhaphangct(Request $request,$masp)
+    public function nhaphangct(Request $request)
     {
         $rules = [
             'MaSP' => 'required',
@@ -109,7 +109,7 @@ class PhieuNhapController extends Controller
             $ctphieunhap->GhiChu = $ct['GhiChu'];
             $ctphieunhap->save();
             $sanpham = SanPham::find($ct['MaSP']);
-            if (($sanpham->SoLuong+$ct['SoLuong']) <= $ct['SoLuong']) {
+            if (($sanpham->SoLuong+$ct['SoLuong']) </*=*/ $ct['SoLuong']) {
                 $phieunhap->delete();
 //                return redirect()->route('cart.index')->with('status', 'Ordering fail. '.$sanpham->TenSP.' not enough quantity' );
             }

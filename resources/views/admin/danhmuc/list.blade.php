@@ -28,7 +28,7 @@
     <!-- DataTales Example -->
     <div class="card shadow mb-4">
         <div class="card-header py-3">
-            <a href="{{Route('danhmuc.create')}}" class="m-0 font-weight-bold btn btn-danger">Thêm mới</a>
+            <a href="{{Route('danhmuc.create')}}" class="m-0 font-weight-bold btn btn-success">Thêm mới</a>
         </div>
         <div class="card-body">
             <div class="table-responsive">
@@ -42,16 +42,16 @@
                     </thead>
                     <tbody>
 
-                    @foreach($danhmuc as $dm)
+                    @foreach($danhmucs as $dm)
                         <tr>
                             <th>{{$dm->MaDM}}</th>
                             <th>{{$dm->TenDM}}</th>
                             <th>
-                                <a href="{{route('danhmuc.edit',$dm->MaDM)}}" class="btn btn-facebook">Edit</a>
+                                <a href="{{route('danhmuc.edit',$dm->MaDM)}}" class="btn btn-facebook"><i class="fas fa-edit"></i></a>
                                 <form class="d-inline" action="{{route('danhmuc.destroy',$dm->MaDM)}}" method="post">
                                     @method('DELETE')
                                     @csrf
-                                    <button class="btn btn-danger"><i style="color: #ffffff" class="fa fa-trash">  </i> Delete</button>
+                                    <button class="btn btn-danger"><i style="color: #ffffff" class="fa fa-trash">  </i></button>
                                 </form>
                             </th>
                         </tr>

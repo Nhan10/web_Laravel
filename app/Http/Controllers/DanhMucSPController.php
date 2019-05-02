@@ -14,8 +14,8 @@ class DanhMucSPController extends Controller
      */
     public function index()
     {
-        $danhmuc = DanhMucSP::all();
-        return view('admin.danhmuc.list',compact('danhmuc'));
+        $danhmucs = DanhMucSP::all();
+        return view('admin.danhmuc.list',compact('danhmucs'));
     }
 
     /**
@@ -40,11 +40,14 @@ class DanhMucSPController extends Controller
             'tenDM' => 'required|unique:danhmucsp|max:155',
         ];
         $customMessages = [
-            'tenDM.required' => 'Bạn phải nhập tên danh mục!',
-            'tenDM.unique' => 'Tên danh mục không được trùng nhau!',
-            'tenDM.max' => 'Tên danh mục không được dài quá :max ký tự'
+            'required' => 'Bạn phải nhập :attribute !',
+            'unique' => ':attribute không được trùng nhau!',
+            'max' => ':attribute không được dài quá :max ký tự'
         ];
-        $this->validate($request, $rules, $customMessages);
+        $customValidationAttributes = [
+            'tenDM' => 'Tên danh mục'
+        ];
+        $this->validate($request, $rules, $customMessages,$customValidationAttributes);
         $danhmuc = new DanhMucSP();
         $danhmuc->TenDM = $request->tenDM;
         $danhmuc->save();
@@ -89,11 +92,14 @@ class DanhMucSPController extends Controller
             'tenDM' => 'required|unique:danhmucsp|max:155',
         ];
         $customMessages = [
-            'tenDM.required' => 'Bạn phải nhập tên danh mục!',
-            'tenDM.unique' => 'Tên danh mục không được trùng nhau!',
-            'tenDM.max' => 'Tên danh mục không được dài quá :max ký tự'
+            'required' => 'Bạn phải nhập :attribute !',
+            'unique' => ':attribute không được trùng nhau!',
+            'max' => ':attribute không được dài quá :max ký tự'
         ];
-        $this->validate($request, $rules, $customMessages);
+        $customValidationAttributes = [
+            'tenDM' => 'Tên danh mục'
+        ];
+        $this->validate($request, $rules, $customMessages,$customValidationAttributes);
         $danhmuc = DanhMucSP::find($request->MaDM);
         $danhmuc->TenDM = $request->tenDM;
         $danhmuc->save();

@@ -28,7 +28,7 @@
     <!-- DataTales Example -->
     <div class="card shadow mb-4">
         <div class="card-header py-3">
-            <a href="{{Route('tacgia.create')}}" class="m-0 font-weight-bold btn btn-danger">Thêm mới</a>
+            <a href="{{Route('tacgia.create')}}" class="m-0 font-weight-bold btn btn-success">Thêm mới</a>
         </div>
         <div class="card-body">
             <div class="table-responsive">
@@ -51,11 +51,11 @@
                             <th>{{$tacgia->DiaChi}}</th>
                             <th>{{$tacgia->SDT}}</th>
                             <th>
-                                <a href="{{route('tacgia.edit',$tacgia->MaTG)}}" class="btn btn-facebook">Edit</a>
+                                <a href="{{route('tacgia.edit',$tacgia->MaTG)}}" class="btn btn-facebook"><i class="fas fa-edit"></i></a>
                                 <form class="d-inline" action="{{route('tacgia.destroy',$tacgia->MaTG)}}" method="post">
                                     @method('DELETE')
                                     @csrf
-                                    <button class="btn btn-danger"><i style="color: #ffffff" class="fa fa-trash">  </i> Delete</button>
+                                    <button class="btn btn-danger"><i style="color: #ffffff" class="fa fa-trash">  </i></button>
                                 </form>
                             </th>
                         </tr>

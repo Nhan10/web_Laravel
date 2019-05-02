@@ -48,11 +48,14 @@ class LoaiSPController extends Controller
             'tenLoai' => 'required|unique:loaisp|max:155',
         ];
         $customMessages = [
-            'tenLoai.required' => 'Bạn phải nhập tên loại sản phẩm!',
-            'tenLoai.unique' => 'Tên loại sản phẩm không được trùng nhau!',
-            'tenLoai.max' => 'Tên loại sản phẩm không được dài quá :max ký tự'
+            'required' => 'Bạn phải nhập :attribute !',
+            'unique' => ':attribute không được trùng nhau!',
+            'max' => ':attribute không được dài quá :max ký tự !'
         ];
-        $this->validate($request, $rules, $customMessages);
+        $customValidationAttributes = [
+            'tenLoai' => 'Tên loại'
+        ];
+        $this->validate($request, $rules, $customMessages,$customValidationAttributes);
         $loaisp = new LoaiSP();
         $loaisp->TenLoai = $request->tenLoai;
         $loaisp->MaNSP = $request->maNSP;
@@ -98,11 +101,14 @@ class LoaiSPController extends Controller
             'tenLoai' => 'required|unique:loaisp|max:155',
         ];
         $customMessages = [
-            'tenLoai.required' => 'Bạn phải nhập tên loại sản phẩm!',
-            'tenLoai.unique' => 'Tên loại sản phẩm không được trùng nhau!',
-            'tenLoai.max' => 'Tên loại sản phẩm không được dài quá :max ký tự'
+            'required' => 'Bạn phải nhập :attribute !',
+            'unique' => ':attribute không được trùng nhau!',
+            'max' => ':attribute không được dài quá :max ký tự !'
         ];
-        $this->validate($request, $rules, $customMessages);
+        $customValidationAttributes = [
+            'tenLoai' => 'Tên loại'
+        ];
+        $this->validate($request, $rules, $customMessages,$customValidationAttributes);
         $loaisp = LoaiSP::find($MaLoai);
         $loaisp->TenLoai = $request->tenLoai;
         $loaisp->MaNSP = $request->maNSP;

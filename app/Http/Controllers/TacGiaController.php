@@ -42,17 +42,16 @@ class TacGiaController extends Controller
             'sDT' => 'required|max:15',
         ];
         $customMessages = [
-            'tenTG.required' => 'Bạn phải nhập tên tác giả!',
-            'tenTG.unique' => 'Tên tác giả không được trùng nhau!',
-            'tenTG.max' => 'Tên tác giả không được dài quá :max ký tự',
-
-            'diaChi.required' => 'Bạn phải nhập địa chỉ!',
-            'diaChi.max' => 'Địa chỉ không được dài quá :max ký tự',
-
-            'sDT.required' => 'Bạn phải nhập số điện thoại!',
-            'sDT.max' => 'Số điện thoại không được dài quá :max ký tự'
+            'required' => 'Bạn phải nhập :attribute!',
+            'unique' => ':attribute không được trùng nhau!',
+            'max' => ':attribute không được dài quá :max ký tự !',
         ];
-        $this->validate($request, $rules, $customMessages);
+        $customValidationAttributes = [
+            'tenTG' => 'Tên tác giả',
+            'diaChi' => 'Địa chỉ',
+            'sDT' => 'Số điện thoại'
+        ];
+        $this->validate($request, $rules, $customMessages,$customValidationAttributes);
         $tacgia = new TacGia();
         $tacgia->TenTG = $request->tenTG;
         $tacgia->DiaChi = $request->diaChi;
@@ -102,17 +101,16 @@ class TacGiaController extends Controller
             'sDT' => 'required|max:15',
         ];
         $customMessages = [
-            'tenTG.required' => 'Bạn phải nhập tên tác giả!',
-            'tenTG.unique' => 'Tên tác giả không được trùng nhau!',
-            'tenTG.max' => 'Tên tác giả không được dài quá :max ký tự',
-
-            'diaChi.required' => 'Bạn phải nhập địa chỉ!',
-            'diaChi.max' => 'Địa chỉ không được dài quá :max ký tự',
-
-            'sDT.required' => 'Bạn phải nhập số điện thoại!',
-            'sDT.max' => 'Số điện thoại không được dài quá :max ký tự'
+            'required' => 'Bạn phải nhập :attribute!',
+            'unique' => ':attribute không được trùng nhau!',
+            'max' => ':attribute không được dài quá :max ký tự !',
         ];
-        $this->validate($request, $rules, $customMessages);
+        $customValidationAttributes = [
+            'tenTG' => 'Tên tác giả',
+            'diaChi' => 'Địa chỉ',
+            'sDT' => 'Số điện thoại'
+        ];
+        $this->validate($request, $rules, $customMessages,$customValidationAttributes);
         $tacgia = TacGia::find($MaTG);
         $tacgia->TenTG = $request->tenTG;
         $tacgia->DiaChi = $request->diaChi;

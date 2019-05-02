@@ -66,15 +66,17 @@
                             <img id="imgShow" src="{{asset('storage/'.$sanpham->hinhAnhs[0]->DuongDan)}}" width="300" alt="..." class="img-thumbnail">
                         </div>
                         <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
-                        {{--<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js"></script>--}}
-                        {{--<script type="text/javascript" src="https://cdn.rawgit.com/igorlino/elevatezoom-plus/1.1.6/src/jquery.ez-plus.js"></script>--}}
-
+                        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js"></script>
+                        <script type="text/javascript" src="https://cdn.rawgit.com/igorlino/elevatezoom-plus/1.1.6/src/jquery.ez-plus.js"></script>
                         <script type="text/javascript">
                             $(document).ready(function () {
                                 $('.list-unstyled img').click(function (e) {
                                     e.preventDefault();
                                     $('#imgShow').attr("src", $(this).attr("src"));
+
+                                    $('#imgShow').ezPlus();
                                 });
+                                $('#imgShow').ezPlus();
                             });
                         </script>
                     </div>

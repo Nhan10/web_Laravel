@@ -104,7 +104,7 @@ Route::prefix('admin')->middleware('admin')->group(function (){
     Route::prefix('nhaphang')->group(function (){
         Route::get('/danhsach','PhieuNhapController@index')->name('nhaphang.index');
         Route::get('/chonhang','PhieuNhapController@chonhang')->name('nhaphang.chonhang');
-        Route::post('/nhaphangchitiet/{masp}','PhieuNhapController@nhaphangct')->name('nhaphang.nhaphangct');
+        Route::post('/nhaphangchitiet','PhieuNhapController@nhaphangct')->name('nhaphang.nhaphangct');
         Route::get('/xacnhan','PhieuNhapController@xacnhan')->name('nhaphang.xacnhan');
         Route::get('/huynhap','PhieuNhapController@huynhap')->name('nhaphang.huynhap');
         Route::get('/nhaphang','PhieuNhapController@store')->name('nhaphang.store');

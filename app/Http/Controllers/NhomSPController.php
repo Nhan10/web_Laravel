@@ -23,8 +23,8 @@ class NhomSPController extends Controller
 
     public function index()
     {
-        $nhomsp = NhomSP::all();
-        return view('admin.nhomsanpham.list',compact('nhomsp'));
+        $nhomsps = NhomSP::all();
+        return view('admin.nhomsanpham.list',compact('nhomsps'));
     }
 
     /**
@@ -34,8 +34,7 @@ class NhomSPController extends Controller
      */
     public function create()
     {
-//        $danhmucs = DanhMucSPs::all();
-        return view('admin.nhomsanpham.create'/*,compact('danhmucs')*/);
+        return view('admin.nhomsanpham.create');
     }
 
     /**
@@ -50,11 +49,14 @@ class NhomSPController extends Controller
             'tenNSP' => 'required|unique:nhomsp|max:155',
         ];
         $customMessages = [
-            'tenNSP.required' => 'Bạn phải nhập tên nhóm sản phẩm!',
-            'tenNSP.unique' => 'Tên nhóm sản phẩm không được trùng nhau!',
-            'tenNSP.max' => 'Tên nhóm sản phẩm không được dài quá :max ký tự'
+            'required' => 'Bạn phải nhập :attribute !',
+            'unique' => ':attribute không được trùng nhau!',
+            'max' => ':attribute không được dài quá :max ký tự'
         ];
-        $this->validate($request, $rules, $customMessages);
+        $customValidationAttributes = [
+            'tenNSP' => 'Tên nhóm sản phẩm'
+        ];
+        $this->validate($request, $rules, $customMessages,$customValidationAttributes);
         $nhomsp = new NhomSP();
         $nhomsp->TenNSP = $request->tenNSP;
         $nhomsp->MaDM = $request->maDM;
@@ -101,11 +103,14 @@ class NhomSPController extends Controller
             'tenNSP' => 'required|unique:nhomsp|max:155',
         ];
         $customMessages = [
-            'tenNSP.required' => 'Bạn phải nhập tên nhóm sản phẩm!',
-            'tenNSP.unique' => 'Tên nhóm sản phẩm không được trùng nhau!',
-            'tenNSP.max' => 'Tên nhóm sản phẩm không được dài quá :max ký tự'
+            'required' => 'Bạn phải nhập :attribute !',
+            'unique' => ':attribute không được trùng nhau!',
+            'max' => ':attribute không được dài quá :max ký tự'
         ];
-        $this->validate($request, $rules, $customMessages);
+        $customValidationAttributes = [
+            'tenNSP' => 'Tên nhóm sản phẩm'
+        ];
+        $this->validate($request, $rules, $customMessages,$customValidationAttributes);
         $nhomsp = NhomSP::find($MaNSP);
         $nhomsp->TenNSP = $request->tenNSP;
         $nhomsp->MaDM = $request->maDM;

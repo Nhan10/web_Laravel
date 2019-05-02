@@ -16,40 +16,34 @@
 
     <div class="row">
         <div class="col-md-6 offset-md-3">
-            @if ($errors->any())
-            <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                <ul>
-                    @foreach ($errors->all() as $error)
-                        <li>{{ $error }}</li>
-                    @endforeach
-                </ul>
-                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            @endif
-            {{--@if ($errors->any())--}}
-                {{--<div class="alert alert-danger">--}}
-                    {{--<ul>--}}
-                        {{--@foreach ($errors->all() as $error)--}}
-                            {{--<li>{{ $error }}</li>--}}
-                        {{--@endforeach--}}
-                    {{--</ul>--}}
-                {{--</div>--}}
-            {{--@endif--}}
             <form action="{{route('tacgia.store')}}" method="POST">
                 @csrf
                 <div class="form-group">
                     <label for="text" class="text-dark">Tên tác giả:</label>
-                    <input required type="text" class="form-control" id="text" name="tenTG">
+                    <input required type="text" class="form-control {{ $errors->has('tenTG') ? ' is-invalid' : '' }}" id="text" name="tenTG">
+                    @if ($errors->has('tenTG'))
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $errors->first('tenTG') }}</strong>
+                        </span>
+                    @endif
                 </div>
                 <div class="form-group">
                     <label for="text" class="text-dark">Địa chỉ:</label>
-                    <input required type="text" class="form-control" id="text" name="diaChi">
+                    <input required type="text" class="form-control {{ $errors->has('diaChi') ? ' is-invalid' : '' }}" id="text" name="diaChi">
+                    @if ($errors->has('diaChi'))
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $errors->first('diaChi') }}</strong>
+                        </span>
+                    @endif
                 </div>
                 <div class="form-group">
                     <label for="text" class="text-dark">Số điện thoại:</label>
-                    <input required type="text" class="form-control" id="text" name="sDT">
+                    <input required type="text" class="form-control {{ $errors->has('sDT') ? ' is-invalid' : '' }}" id="text" name="sDT">
+                    @if ($errors->has('sDT'))
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $errors->first('sDT') }}</strong>
+                        </span>
+                    @endif
                 </div>
                 <div class="form-group">
                     <label for="text" class="text-dark">Giới thiệu:</label>

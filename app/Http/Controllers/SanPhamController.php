@@ -49,6 +49,44 @@ class SanPhamController extends Controller
      */
     public function store(Request $request)
     {
+        $rules = [
+            'maLoai' => 'required|Numeric',
+            'tenSP' => 'required|unique:sanpham|max:255',
+            'gia' => 'required|Numeric',
+            'maTG' => 'required|Numeric',
+            'moTa' => 'required',
+            'soTrang' => 'required|Numeric',
+            'loaiBia' => 'required|max:155',
+            'kichThuoc' => 'required',
+            'canNang' => 'required|Numeric',
+            'ngonNgu' => 'required|max:255',
+            'nXB' => 'required|max:255',
+            'namXB' => 'required|Numeric',
+            'dichGia' => 'required|max:155',
+        ];
+        $customMessages = [
+            'required' => 'Bạn phải nhập :attribute!',
+            'unique' => ':attribute không được trùng nhau!',
+            'max' => ':attribute không được dài quá :max ký tự !',
+            'Numeric' => ':attribute bạn phải nhập số!',
+        ];
+        $customValidationAttributes = [
+            'maLoai' => 'Mã loại',
+            'tenSP' => 'Tên sản phẩm',
+            'gia' => 'Giá',
+            'maTG' => 'Mã tác giả',
+            'moTa' => 'Mô tả',
+            'soTrang' => 'Số trang',
+            'loaiBia' => 'Loại bìa',
+            'kichThuoc' => 'Kích thước',
+            'canNang' => 'Cân nặng',
+            'ngonNgu' => 'Ngôn ngữ',
+            'nXB' => 'Nhà xuất bản',
+            'namXB' => 'Năm xuất bản',
+            'dichGia' => 'Dịch giả',
+        ];
+        $this->validate($request, $rules, $customMessages,$customValidationAttributes);
+
         $sanpham = new SanPham();
         $sanpham->MaLoai = $request->maLoai;
         $sanpham->TenSP = $request->tenSP;
@@ -112,11 +150,49 @@ class SanPhamController extends Controller
      */
     public function update(Request $request, $MaSP)
     {
+        $rules = [
+            'maLoai' => 'required|Numeric',
+            'tenSP' => 'required|unique:sanpham|max:255',
+            'gia' => 'required|Numeric',
+            'maTG' => 'required|Numeric',
+            'moTa' => 'required',
+            'soTrang' => 'required|Numeric',
+            'loaiBia' => 'required|max:155',
+            'kichThuoc' => 'required',
+            'canNang' => 'required|Numeric',
+            'ngonNgu' => 'required|max:255',
+            'nXB' => 'required|max:255',
+            'namXB' => 'required|Numeric',
+            'dichGia' => 'required|max:155',
+        ];
+        $customMessages = [
+            'required' => 'Bạn phải nhập :attribute!',
+            'unique' => ':attribute không được trùng nhau!',
+            'max' => ':attribute không được dài quá :max ký tự !',
+            'Numeric' => ':attribute bạn phải nhập số!',
+        ];
+        $customValidationAttributes = [
+            'maLoai' => 'Mã loại',
+            'tenSP' => 'Tên sản phẩm',
+            'gia' => 'Giá',
+            'maTG' => 'Mã tác giả',
+            'moTa' => 'Mô tả',
+            'soTrang' => 'Số trang',
+            'loaiBia' => 'Loại bìa',
+            'kichThuoc' => 'Kích thước',
+            'canNang' => 'Cân nặng',
+            'ngonNgu' => 'Ngôn ngữ',
+            'nXB' => 'Nhà xuất bản',
+            'namXB' => 'Năm xuất bản',
+            'dichGia' => 'Dịch giả',
+        ];
+        $this->validate($request, $rules, $customMessages,$customValidationAttributes);
+
         $sanpham = SanPham::find($MaSP);
         $sanpham->MaLoai = $request->maLoai;
         $sanpham->TenSP = $request->tenSP;
         $sanpham->Gia = $request->gia;
-        $sanpham->SoLuong = 0;
+//        $sanpham->SoLuong = 0;
         $sanpham->MaTG = $request->maTG;
         $sanpham->MoTa = $request->moTa;
         $sanpham->SoTrang = $request->soTrang;

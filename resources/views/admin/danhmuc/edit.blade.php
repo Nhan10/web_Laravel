@@ -16,24 +16,17 @@
 
     <div class="row">
         <div class="col-md-6 offset-md-3">
-            @if ($errors->any())
-                <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                    <ul>
-                        @foreach ($errors->all() as $error)
-                            <li>{{ $error }}</li>
-                        @endforeach
-                    </ul>
-                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-            @endif
             <form action="{{route('danhmuc.update',$danhmuc->MaDM)}}" method="POST">
                 @method('PUT')
                 @csrf
                 <div class="form-group">
                     <label for="text" class="text-dark">Tên danh mục:</label>
-                    <input required type="text" class="form-control" value="{{$danhmuc->TenDM}}" id="text" name="tenDM">
+                    <input required type="text" class="form-control {{ $errors->has('tenDM') ? ' is-invalid' : '' }}" value="{{$danhmuc->TenDM}}" id="text" name="tenDM">
+                    @if ($errors->has('tenDM'))
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $errors->first('tenDM') }}</strong>
+                        </span>
+                    @endif
                 </div>
                 <button type="submit" class="btn btn-primary">Sửa</button>
                 <a href="{{ route('danhmuc.index')}}" class="text-blue-800">Quay lại</a>

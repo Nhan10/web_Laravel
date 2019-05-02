@@ -42,17 +42,16 @@ class NhaCungCapController extends Controller
             'sDT' => 'required|max:15',
         ];
         $customMessages = [
-            'tenNCC.required' => 'Bạn phải nhập tên nhà cung cấp!',
-            'tenNCC.unique' => 'Tên nhà cung cấp không được trùng nhau!',
-            'tenNCC.max' => 'Tên nhà cung cấp không được dài quá :max ký tự',
-
-            'diaChi.required' => 'Bạn phải nhập địa chỉ!',
-            'diaChi.max' => 'Địa chỉ không được dài quá :max ký tự',
-
-            'sDT.required' => 'Bạn phải nhập số điện thoại!',
-            'sDT.max' => 'Số điện thoại không được dài quá :max ký tự'
+            'required' => 'Bạn phải nhập :attribute!',
+            'unique' => ':attribute không được trùng nhau!',
+            'max' => ':attribute không được dài quá :max ký tự',
         ];
-        $this->validate($request, $rules, $customMessages);
+        $customValidationAttributes = [
+            'tenNCC' => 'Tên nhà cung cấp',
+            'diaChi' => 'Địa chỉ',
+            'sDT' => 'Số điện thoại'
+        ];
+        $this->validate($request, $rules, $customMessages,$customValidationAttributes);
         $nhacungcap = new NhaCungCap();
         $nhacungcap->TenNCC = $request->tenNCC;
         $nhacungcap->DiaChi = $request->diaChi;
@@ -101,17 +100,16 @@ class NhaCungCapController extends Controller
             'sDT' => 'required|max:15',
         ];
         $customMessages = [
-            'tenNCC.required' => 'Bạn phải nhập tên nhà cung cấp!',
-            'tenNCC.unique' => 'Tên nhà cung cấp không được trùng nhau!',
-            'tenNCC.max' => 'Tên nhà cung cấp không được dài quá :max ký tự',
-
-            'diaChi.required' => 'Bạn phải nhập địa chỉ!',
-            'diaChi.max' => 'Địa chỉ không được dài quá :max ký tự',
-
-            'sDT.required' => 'Bạn phải nhập số điện thoại!',
-            'sDT.max' => 'Số điện thoại không được dài quá :max ký tự'
+            'required' => 'Bạn phải nhập :attribute!',
+            'unique' => ':attribute không được trùng nhau!',
+            'max' => ':attribute không được dài quá :max ký tự',
         ];
-        $this->validate($request, $rules, $customMessages);
+        $customValidationAttributes = [
+            'tenNCC' => 'Tên nhà cung cấp',
+            'diaChi' => 'Địa chỉ',
+            'sDT' => 'Số điện thoại'
+        ];
+        $this->validate($request, $rules, $customMessages,$customValidationAttributes);
         $nhacungcap = NhaCungCap::find($MaNCC);
         $nhacungcap->TenNCC = $request->tenNCC;
         $nhacungcap->DiaChi = $request->diaChi;
@@ -131,7 +129,7 @@ class NhaCungCapController extends Controller
     public function destroy($MaNCC)
     {
         $nhacungcap = NhaCungCap::find($MaNCC);
-        If(count($nhacungcap->phieuNhaps)>0){
+        If(count($nhacungcap->cTphieuNhaps)>0){
             return redirect()
                 ->route('nhacungcap.index')
                 ->with('error','Khổng thể xóa nhà cung cấp "'.$nhacungcap->TenNCC.'"!');

@@ -28,7 +28,7 @@
     <!-- DataTales Example -->
     <div class="card shadow mb-4">
         <div class="card-header py-3">
-            <a href="{{Route('sanpham.create')}}" class="m-0 font-weight-bold btn btn-danger">Thêm mới</a>
+            <a href="{{Route('sanpham.create')}}" class="m-0 font-weight-bold btn btn-success">Thêm mới</a>
         </div>
         <div class="card-body">
             <div class="table-responsive">
@@ -53,12 +53,12 @@
                             <th>{{$sanpham->Gia}}</th>
                             <th>{{$sanpham->SoLuong}}</th>
                             <th>
-                                <a href="{{route('sanpham.show',$sanpham->MaSP)}}" class="btn btn-facebook">detail</a>
-                                <a href="{{route('sanpham.edit',$sanpham->MaSP)}}" class="btn btn-facebook">Edit</a>
+                                <a href="{{route('sanpham.show',$sanpham->MaSP)}}" class="btn btn-outline-info"><i class="fas fa-info-circle"></i></a>
+                                <a href="{{route('sanpham.edit',$sanpham->MaSP)}}" class="btn btn-facebook"><i class="fas fa-edit"></i></a>
                                 <form class="d-inline" action="{{route('sanpham.destroy',$sanpham->MaSP)}}" method="post">
                                     @method('DELETE')
                                     @csrf
-                                    <button class="btn btn-danger"><i style="color: #ffffff" class="fa fa-trash">  </i> Delete</button>
+                                    <button class="btn btn-danger"><i style="color: #ffffff" class="fa fa-trash">  </i></button>
                                 </form>
                             </th>
                         </tr>

@@ -43,14 +43,17 @@
                         @endforeach
                     </select>
                 </div>
+
                 <div class="form-group">
                     <label for="text" class="text-dark">Tên sản phẩm:</label>
                     <input required type="text" class="form-control" id="text" value="{{$sanpham->TenSP}}" name="tenSP">
                 </div>
+
                 <div class="form-group">
                     <label for="text" class="text-dark">Giá:</label>
                     <input required type="number" class="form-control" id="text" value="{{$sanpham->Gia}}" name="gia">
                 </div>
+
                 <div class="form-group">
                     <label for="text" class="text-dark">Mã tác giả:</label>
                     <select class="custom-select" name="maTG" >
@@ -63,6 +66,7 @@
                         @endforeach
                     </select>
                 </div>
+                
                 <div class="form-group">
                     <label for="text" class="text-dark">Mô tả:</label>
                     <textarea name="moTa" class="form-control" id="" cols="30" rows="10" required>{{$sanpham->MoTa}}</textarea>

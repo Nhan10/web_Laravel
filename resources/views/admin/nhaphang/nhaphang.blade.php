@@ -63,9 +63,9 @@
                                     <th>{{$sanpham->Gia}}</th>
                                     {{--<form action="{{route('nhaphang.nhaphangct')}}" method="post">--}}
                                         @csrf
-                                    <th><input type="number" name="GiaNhap" class="form-control" style="width: 10em;"></th>
+                                    <th><input type="number" name="GiaNhap-{{$sanpham->MaSP}}" class="form-control" style="width: 10em;"></th>
                                     <th>
-                                        <select name="MaNCC" class="custom-select">
+                                        <select name="MaNCC-{{$sanpham->MaSP}}" class="custom-select">
                                             @foreach($nhacungcaps as $ncc)
                                                 <option value="{{$ncc->MaNCC}}">{{$ncc->TenNCC}}</option>
                                             @endforeach
@@ -73,60 +73,61 @@
                                     </th>
                                         <th>{{$sanpham->SoLuong}}</th>
                                     <th>
-                                        <input type="number" name="SoLuong" class="form-control" style="width: 4em;text-align: center" >
-                                        <input type="hidden" name="MaSP" value="{{$sanpham->MaSP}}">
+                                        <input type="number" name="SoLuong-{{$sanpham->MaSP}}" class="form-control" style="width: 4em;text-align: center" >
+                                        <input type="hidden" name="MaSP-{{$sanpham->MaSP}}" value="{{$sanpham->MaSP}}">
                                     </th>
                                     <th>
-                                            <button type="submit" class="btn btn-success them">Thêm</button>
+                                            <button type="submit" class="btn btn-success them-{{$sanpham->MaSP}}">Thêm</button>
                                     </th>
 
                                     {{--</form>--}}
                                 </tr>
+                                <script src={{asset('admin/vendor/jquery/jquery.min.js')}}></script>
+                                <script type="text/javascript">
+                                    $(document).ready(function () {
+                                        $(".them-{{$sanpham->MaSP}}").click(function(e) {
+                                            e.preventDefault();
+                                            $.ajaxSetup({
+                                                headers: {
+                                                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                                                }
+                                            });
+                                            // var query = $(this).val();
+                                            // console.log(query);
+                                            var _token = $('input[name="_token-{{$sanpham->MaSP}}"]').val();
+                                            // console.log(_token);
+                                            var GiaNhap = $('input[name="GiaNhap-{{$sanpham->MaSP}}"]').val();
+                                            var MaNCC = $('select[name="MaNCC-{{$sanpham->MaSP}}"]').val();
+                                            var SoLuong = $('input[name="SoLuong-{{$sanpham->MaSP}}"]').val();
+                                            var MaSP = $('input[name="MaSP-{{$sanpham->MaSP}}"]').val();
+                                            {{--var url = '{{ route('nhaphang.nhaphangct', ":id") }}';--}}
+                                            {{--url = url.replace(':id', MaSP);--}}
+
+                                            $.ajax(
+                                                {
+                                                    url: "{{route('nhaphang.nhaphangct')}}",
+                                                    method: "POST",
+                                                    data: {'GiaNhap': GiaNhap,'MaNCC': MaNCC,'SoLuong': SoLuong,'MaSP': MaSP, '_token': _token},
+                                                    datatype: "html",
+                                                }).done(function (data) {
+                                                // alert('Thêm thành công!');
+                                                // console.log(data);
+                                                $('.alert-success').show();
+                                                $('.alert-success').html(data.success);
+                                            }).fail(function (jqXHR, ajaxOptions, thrownError) {
+                                                alert('No response from server');
+                                                console.log(jqXHR);
+                                            })
+                                        });
+
+                                    });
+                                </script>
                         @endforeach
                         </tbody>
                     </table>
                 </div>
             </div>
         </div>
-    <script src={{asset('admin/vendor/jquery/jquery.min.js')}}></script>
-    <script type="text/javascript">
-        $(document).ready(function () {
-            $('.them').click(function(e) {
-                e.preventDefault();
-                $.ajaxSetup({
-                    headers: {
-                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                    }
-                });
-                // var query = $(this).val();
-                // console.log(query);
-                var _token = $('input[name="_token"]').val();
-                // console.log(_token);
-                var GiaNhap = $('input[name="GiaNhap"]').val();
-                var MaNCC = $('select[name="MaNCC"]').val();
-                var SoLuong = $('input[name="SoLuong"]').val();
-                var MaSP = $('input[name="MaSP"]').val();
-                var url = '{{ route('nhaphang.nhaphangct', ":id") }}';
-                url = url.replace(':id', MaSP);
 
-                $.ajax(
-                    {
-                        url: url,
-                        method: "POST",
-                        data: {'GiaNhap': GiaNhap,'MaNCC': MaNCC,'SoLuong': SoLuong,'MaSP': MaSP, '_token': _token},
-                        datatype: "html",
-                    }).done(function (data) {
-                        // alert('Thêm thành công!');
-                        // console.log(data);
-                        $('.alert-success').show();
-                        $('.alert-success').html(data.success);
-                }).fail(function (jqXHR, ajaxOptions, thrownError) {
-                    alert('No response from server');
-                    console.log(jqXHR);
-                })
-            });
-
-        });
-    </script>
 {{--{{dd(Session::get('ctphieunhap'))}}--}}
 @endsection

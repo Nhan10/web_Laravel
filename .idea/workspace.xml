@@ -2,6 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6d74c20e-f884-4cf3-90df-6e9dd98a93aa" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/app/Http/ViewComposers/danhmucspComposer.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/ViewComposers/nhomspComposer.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/admin/donhang/list.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/admin/donhang/partials/card.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/admin/donhang/partials/cardDanggiao.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/admin/donhang/partials/cardXuly.blade.php" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/resources/views/admin/nguoidung/partials/modalPhanQuyen.blade.php" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/resources/views/admin/nguoidung/phanquyen.blade.php" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/resources/views/admin/nhaphang/nhaphang.blade.php" afterDir="false" />
@@ -17,6 +23,7 @@
       <change afterPath="$PROJECT_DIR$/resources/views/front_end/pages/activation.blade.php" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/resources/views/front_end/pages/activation1.blade.php" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/resources/views/front_end/pages/cart.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/front_end/pages/category.blade.php" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/resources/views/front_end/pages/detail.blade.php" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/resources/views/front_end/pages/home.blade.php" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/resources/views/front_end/pages/order.blade.php" afterDir="false" />
@@ -25,11 +32,13 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/CTDonHang.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/CTDonHang.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/CTPhieuNhap.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/CTPhieuNhap.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/DanhMucSP.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/DanhMucSP.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/DonHang.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/DonHang.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/HinhAnh.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/HinhAnh.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Auth/LoginController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Auth/LoginController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Auth/RegisterController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Auth/RegisterController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/DanhMucSPController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/DanhMucSPController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/DonHangController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/DonHangController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/LoaiSPController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/LoaiSPController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/NhaCungCapController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/NhaCungCapController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/NhomSPController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/NhomSPController.php" afterDir="false" />
@@ -37,8 +46,10 @@
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/SanPhamController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/SanPhamController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/TacGiaController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/TacGiaController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Kernel.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Kernel.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/LoaiSP.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/LoaiSP.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/NguoiDung.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/NguoiDung.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/NhaCungCap.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/NhaCungCap.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/NhomSP.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/NhomSP.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/PhieuNhap.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/PhieuNhap.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/SanPham.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/SanPham.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/TacGia.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/TacGia.php" afterDir="false" />
@@ -58,6 +69,7 @@
       <change beforePath="$PROJECT_DIR$/resources/views/admin/danhmuc/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/danhmuc/create.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/admin/danhmuc/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/danhmuc/edit.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/admin/danhmuc/list.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/danhmuc/list.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/dashboard.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/dashboard.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/admin/layouts/logoutmodal.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/layouts/logoutmodal.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/admin/layouts/master.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/layouts/master.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/admin/layouts/sidebar.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/layouts/sidebar.blade.php" afterDir="false" />
@@ -87,43 +99,72 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/routes/web.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="615">
-              <caret line="106" column="37" selection-start-line="106" selection-start-column="37" selection-end-line="106" selection-end-column="37" />
+            <state relative-caret-position="140">
+              <caret line="22" column="112" selection-start-line="22" selection-start-column="112" selection-end-line="22" selection-end-column="112" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/SanPhamController.php">
+        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/front_end/SearchController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-505">
-              <caret line="188" column="87" selection-start-line="188" selection-start-column="87" selection-end-line="188" selection-end-column="87" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/views/admin/sanpham/list.blade.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="600">
-              <caret line="30" column="93" selection-start-line="30" selection-start-column="93" selection-end-line="30" selection-end-column="93" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/views/admin/sanpham/create.blade.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-2465">
-              <caret line="28" column="26" lean-forward="true" selection-start-line="28" selection-start-column="26" selection-end-line="28" selection-end-column="26" />
+            <state relative-caret-position="161">
+              <caret line="17" column="35" lean-forward="true" selection-start-line="17" selection-start-column="35" selection-end-line="17" selection-end-column="35" />
+              <folding>
+                <element signature="e#50#68#0#PHP" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/resources/views/admin/sanpham/edit.blade.php">
+        <entry file="file://$PROJECT_DIR$/resources/views/front_end/pages/category.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-419" />
+            <state relative-caret-position="1240">
+              <caret line="113" column="100" selection-start-line="113" selection-start-column="100" selection-end-line="113" selection-end-column="100" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/resources/views/front_end/layouts/sidebar.blade.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state>
+              <caret column="22" selection-start-column="22" selection-end-column="22" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/resources/views/front_end/layouts/master.blade.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1721">
+              <caret line="267" column="15" selection-start-line="267" selection-start-column="15" selection-end-line="267" selection-end-column="15" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/Http/ViewComposers/nhomspComposer.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="520">
+              <caret line="27" selection-start-line="27" selection-end-line="27" />
+              <folding>
+                <element signature="e#42#57#0#PHP" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/Http/ViewComposers/danhmucspComposer.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="660">
+              <caret line="34" column="39" selection-start-line="34" selection-start-column="39" selection-end-line="34" selection-end-column="39" />
+              <folding>
+                <element signature="e#42#60#0#PHP" expanded="true" />
+              </folding>
+            </state>
           </provider>
         </entry>
       </file>
@@ -134,6 +175,8 @@
       <find>home.sanpham</find>
       <find>nhaphang.nhaphang</find>
       <find>`</find>
+      <find>notiError</find>
+      <find>close</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -142,57 +185,57 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/resources/views/admin/layouts/logoutmodal.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/front_end/pages/activation.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/front_end/pages/activation1.blade.php" />
-        <option value="$PROJECT_DIR$/app/NguoiDung.php" />
-        <option value="$PROJECT_DIR$/resources/views/admin/nguoidung/create.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/admin/nguoidung/edit.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/admin/nguoidung/partials/modalPhanQuyen.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/admin/nguoidung/phanquyen.blade.php" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/NguoiDungController.php" />
-        <option value="$PROJECT_DIR$/resources/views/admin/nguoidung/list.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/admin/layouts/sidebar.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/admin/sanpham/edit.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/admin/nhaphang/list.blade.php" />
-        <option value="$PROJECT_DIR$/app/PhieuNhap.php" />
-        <option value="$PROJECT_DIR$/resources/views/admin/nhaphang/xacnhan.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/admin/layouts/master.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/front_end/layouts/header.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/front_end/layouts/master.blade.php" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/front_end/HomeController.php" />
-        <option value="$PROJECT_DIR$/resources/views/front_end/layouts/sidebar.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/front_end/pages/home.blade.php" />
-        <option value="$PROJECT_DIR$/routes/web.php" />
-        <option value="$PROJECT_DIR$/resources/views/admin/nhaphang/nhaphang.blade.php" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/Auth/LoginController.php" />
-        <option value="$PROJECT_DIR$/resources/views/auth/login.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/front_end/pages/404.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/admin/danhmuc/create.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/admin/danhmuc/edit.blade.php" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/DanhMucSPController.php" />
-        <option value="$PROJECT_DIR$/resources/views/admin/danhmuc/list.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/admin/nhomsanpham/list.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/admin/nhomsanpham/edit.blade.php" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/NhomSPController.php" />
-        <option value="$PROJECT_DIR$/resources/views/front_end/pages/detail.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/admin/loaisanpham/list.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/admin/loaisanpham/create.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/admin/loaisanpham/edit.blade.php" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/LoaiSPController.php" />
-        <option value="$PROJECT_DIR$/resources/views/admin/tacgia/list.blade.php" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/TacGiaController.php" />
-        <option value="$PROJECT_DIR$/resources/views/admin/tacgia/create.blade.php" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/PhieuNhapController.php" />
-        <option value="$PROJECT_DIR$/resources/views/admin/tacgia/edit.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/admin/nhacungcap/list.blade.php" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/NhaCungCapController.php" />
-        <option value="$PROJECT_DIR$/resources/views/admin/nhomsanpham/create.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/admin/nhacungcap/create.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/admin/nhacungcap/edit.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/admin/sanpham/list.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/admin/sanpham/create.blade.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/SanPhamController.php" />
+        <option value="$PROJECT_DIR$/resources/views/admin/sanpham/edit.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/admin/sanpham/show.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/admin/nguoidung/list.blade.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/NguoiDungController.php" />
+        <option value="$PROJECT_DIR$/resources/views/admin/nguoidung/edit.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/admin/nguoidung/create.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/admin/nhaphang/list.blade.php" />
+        <option value="$PROJECT_DIR$/database/migrations/2019_03_24_025493_create_CTPhieuNhaps_table.php" />
+        <option value="$PROJECT_DIR$/app/CTPhieuNhap.php" />
+        <option value="$PROJECT_DIR$/database/migrations/2019_03_24_025472_create_PhieuNhaps_table.php" />
+        <option value="$USER_HOME$/Desktop/ĐỒ ÁN CHUYÊN NGÀNH/startbootstrap-sb-admin-2-gh-pages/index.html" />
+        <option value="$PROJECT_DIR$/resources/views/admin/dashboard.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/admin/nhaphang/nhaphang.blade.php" />
+        <option value="$PROJECT_DIR$/../Selling-mobile/app/Http/Controllers/CartController.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/PhieuNhapController.php" />
+        <option value="$PROJECT_DIR$/app/PhieuNhap.php" />
+        <option value="$PROJECT_DIR$/resources/views/admin/nhaphang/xacnhan.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/admin/donhang/partials/cardXuly.blade.php" />
+        <option value="$PROJECT_DIR$/app/Http/Middleware/isQuanly.php" />
+        <option value="$PROJECT_DIR$/app/Http/Kernel.php" />
+        <option value="$PROJECT_DIR$/app/DonHang.php" />
+        <option value="$PROJECT_DIR$/app/NguoiDung.php" />
+        <option value="$PROJECT_DIR$/resources/views/admin/donhang/partials/card.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/admin/donhang/list.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/admin/donhang/partials/cardDaxuly.blade.php" />
+        <option value="$PROJECT_DIR$/app/Http/Middleware/isAdmin.php" />
+        <option value="$PROJECT_DIR$/resources/views/admin/donhang/partials/cardDanggiao.blade.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/Auth/LoginController.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/DonHangController.php" />
+        <option value="$PROJECT_DIR$/resources/views/admin/layouts/sidebar.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/auth/login.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/front_end/pages/home.blade.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/front_end/HomeController.php" />
+        <option value="$PROJECT_DIR$/resources/views/front_end/layouts/sidebar.blade.php" />
+        <option value="$PROJECT_DIR$/config/app.php" />
+        <option value="$PROJECT_DIR$/app/Http/ViewComposers/nhomspComposer.php" />
+        <option value="$PROJECT_DIR$/app/Http/ViewComposers/danhmucspComposer.php" />
+        <option value="$PROJECT_DIR$/app/Providers/ComposerServiceProvider.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/front_end/CartController.php" />
+        <option value="$PROJECT_DIR$/resources/views/front_end/layouts/master.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/front_end/layouts/header.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/front_end/pages/detail.blade.php" />
+        <option value="$PROJECT_DIR$/app/LoaiSP.php" />
+        <option value="$PROJECT_DIR$/app/SanPham.php" />
+        <option value="$PROJECT_DIR$/app/NhomSP.php" />
+        <option value="$PROJECT_DIR$/routes/web.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/front_end/SearchController.php" />
+        <option value="$PROJECT_DIR$/app/DanhMucSP.php" />
+        <option value="$PROJECT_DIR$/resources/views/front_end/pages/category.blade.php" />
       </list>
     </option>
   </component>
@@ -320,41 +363,69 @@
               <item name="app" type="462c0819:PsiDirectoryNode" />
               <item name="Http" type="462c0819:PsiDirectoryNode" />
               <item name="Controllers" type="462c0819:PsiDirectoryNode" />
-              <item name="Auth" type="462c0819:PsiDirectoryNode" />
+              <item name="front_end" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Selling-book-DA" type="b2602c69:ProjectViewProjectNode" />
               <item name="Selling-book-DA" type="462c0819:PsiDirectoryNode" />
               <item name="app" type="462c0819:PsiDirectoryNode" />
               <item name="Http" type="462c0819:PsiDirectoryNode" />
-              <item name="Controllers" type="462c0819:PsiDirectoryNode" />
+              <item name="ViewComposers" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Selling-book-DA" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Selling-book-DA" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="Providers" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Selling-book-DA" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Selling-book-DA" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Selling-book-DA" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Selling-book-DA" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Selling-book-DA" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Selling-book-DA" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+              <item name="admin" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Selling-book-DA" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Selling-book-DA" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+              <item name="admin" type="462c0819:PsiDirectoryNode" />
+              <item name="nguoidung" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Selling-book-DA" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Selling-book-DA" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
               <item name="front_end" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Selling-book-DA" type="b2602c69:ProjectViewProjectNode" />
               <item name="Selling-book-DA" type="462c0819:PsiDirectoryNode" />
               <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+              <item name="front_end" type="462c0819:PsiDirectoryNode" />
+              <item name="layouts" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Selling-book-DA" type="b2602c69:ProjectViewProjectNode" />
               <item name="Selling-book-DA" type="462c0819:PsiDirectoryNode" />
               <item name="resources" type="462c0819:PsiDirectoryNode" />
               <item name="views" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Selling-book-DA" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Selling-book-DA" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="admin" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Selling-book-DA" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Selling-book-DA" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="admin" type="462c0819:PsiDirectoryNode" />
-              <item name="sanpham" type="462c0819:PsiDirectoryNode" />
+              <item name="front_end" type="462c0819:PsiDirectoryNode" />
+              <item name="pages" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -387,7 +458,13 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="PHP Script.NguoiDungController.php">
+  <component name="RunManager" selected="JavaScript Debug.PhieuNhapController.php">
+    <configuration name="PhieuNhapController.php" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/Selling-book-DA/Http/Controllers/PhieuNhapController.php" useBuiltInWebServerPort="true">
+      <method v="2" />
+    </configuration>
+    <configuration name="PhieuNhap.php" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/Selling-book-DA/PhieuNhap.php" useBuiltInWebServerPort="true">
+      <method v="2" />
+    </configuration>
     <configuration name="phpunit.xml" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
       <TestRunner scope="XML" />
       <method v="2" />
@@ -397,6 +474,8 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JavaScript Debug.PhieuNhapController.php" />
+        <item itemvalue="JavaScript Debug.PhieuNhap.php" />
         <item itemvalue="PHP Script.NguoiDungController.php" />
       </list>
     </recent_temporary>
@@ -463,25 +542,49 @@
       <workItem from="1556525922114" duration="3450000" />
       <workItem from="1556702374326" duration="5687000" />
       <workItem from="1556716537959" duration="4542000" />
-      <workItem from="1556770125644" duration="9021000" />
+      <workItem from="1556770125644" duration="10757000" />
+      <workItem from="1556800252682" duration="3227000" />
+      <workItem from="1556886646103" duration="12487000" />
+      <workItem from="1556901138440" duration="45000" />
+      <workItem from="1556950051478" duration="6888000" />
+      <workItem from="1557323119149" duration="6395000" />
+      <workItem from="1557406987055" duration="7472000" />
+      <workItem from="1557493219162" duration="1086000" />
+      <workItem from="1557562078398" duration="1093000" />
+      <workItem from="1557577797194" duration="597000" />
+      <workItem from="1557580599842" duration="3100000" />
+      <workItem from="1557639941762" duration="53000" />
+      <workItem from="1557721526055" duration="7115000" />
+      <workItem from="1557816849337" duration="5030000" />
+      <workItem from="1557837224765" duration="5859000" />
+      <workItem from="1557897045786" duration="10358000" />
+      <workItem from="1557975311153" duration="3867000" />
+      <workItem from="1558013746625" duration="3479000" />
+      <workItem from="1558084555863" duration="10152000" />
+      <workItem from="1558331694393" duration="6325000" />
+      <workItem from="1558345065971" duration="6872000" />
+      <workItem from="1558416804950" duration="5871000" />
+      <workItem from="1558506402867" duration="11250000" />
+      <workItem from="1558579963579" duration="6080000" />
+      <workItem from="1558591158664" duration="4647000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="308757000" />
+    <option name="totallyTimeSpent" value="439841000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.27114093" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.30738255" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="npm" order="2" side_tool="true" />
       <window_info id="Favorites" order="3" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3286119" />
       <window_info anchor="bottom" id="Run" order="2" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.39943343" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -500,336 +603,344 @@
     <option name="version" value="1" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/public/image/slide2.png">
-      <provider selected="true" editor-type-id="images" />
+    <entry file="file://$PROJECT_DIR$/app/TrangThai.php">
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/admin/nhaphang/nhaphang.blade.php">
+    <entry file="file://$PROJECT_DIR$/resources/views/admin/danhmuc/create.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="981">
-          <caret line="101" column="93" selection-start-line="101" selection-start-column="93" selection-end-line="101" selection-end-column="93" />
+        <state relative-caret-position="-120" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../Llaravel/app/LoaiTin.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../Llaravel/app/Http/Controllers/LoaiTinController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-240" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../Llaravel/app/Http/Controllers/TheLoaiController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="200">
+          <caret line="21" column="9" lean-forward="true" selection-start-line="19" selection-start-column="8" selection-end-line="21" selection-end-column="9" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/front_end/HomeController.php">
+    <entry file="file://$PROJECT_DIR$/../Selling-mobile/app/Http/Controllers/CategoryController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="318">
-          <caret line="16" column="81" selection-start-line="16" selection-start-column="81" selection-end-line="16" selection-end-column="81" />
+        <state relative-caret-position="-779" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Middleware/isQuanly.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="21">
+          <caret line="5" column="36" selection-start-line="5" selection-start-column="36" selection-end-line="5" selection-end-column="36" />
           <folding>
-            <element signature="e#50#65#0#PHP" expanded="true" />
+            <element signature="e#39#51#0#PHP" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/front_end/CartController.php">
+    <entry file="file://$PROJECT_DIR$/app/Http/Kernel.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-180" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/admin/nhaphang/edit.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="460">
-          <caret line="29" column="18" lean-forward="true" selection-start-line="18" selection-start-column="12" selection-end-line="29" selection-end-column="18" />
+        <state relative-caret-position="-345">
+          <caret line="38" lean-forward="true" selection-start-line="38" selection-end-line="38" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/admin/nhaphang/list.blade.php">
+    <entry file="file://$PROJECT_DIR$/app/NguoiDung.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="400">
-          <caret line="26" lean-forward="true" selection-start-line="26" selection-end-line="26" />
+        <state relative-caret-position="280">
+          <caret line="69" column="34" lean-forward="true" selection-start-line="69" selection-start-column="34" selection-end-line="69" selection-end-column="34" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Auth/RegisterController.php">
+    <entry file="file://$PROJECT_DIR$/app/DonHang.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-840" />
+        <state relative-caret-position="360">
+          <caret line="21" column="56" selection-start-line="21" selection-start-column="56" selection-end-line="21" selection-end-column="56" />
+        </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/config/auth.php">
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/front_end/OrderController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1260" />
+        <state relative-caret-position="-660" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/vendor/laravel/framework/src/Illuminate/Auth/Listeners/SendEmailVerificationNotification.php">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/vendor/laravel/framework/src/Illuminate/Auth/Events/Lockout.php">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/vendor/laravel/framework/src/Illuminate/Auth/Events/Failed.php">
+    <entry file="file://$PROJECT_DIR$/app/Http/Middleware/isAdmin.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-65" />
+        <state relative-caret-position="338">
+          <caret line="29" column="135" selection-start-line="29" selection-start-column="135" selection-end-line="29" selection-end-column="135" />
+          <folding>
+            <element signature="e#39#51#0#PHP" expanded="true" />
+          </folding>
+        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Auth/LoginController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="675">
-          <caret line="73" column="94" selection-start-line="73" selection-start-column="94" selection-end-line="73" selection-end-column="94" />
+        <state relative-caret-position="421">
+          <caret line="75" column="98" selection-start-line="75" selection-start-column="98" selection-end-line="75" selection-end-column="98" />
           <folding>
             <element signature="e#45#81#0#PHP" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/layouts/app.blade.php">
+    <entry file="file://$PROJECT_DIR$/resources/views/admin/donhang/list.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="855">
-          <caret line="72" column="10" selection-start-line="72" selection-start-column="10" selection-end-line="72" selection-end-column="10" />
+        <state relative-caret-position="800">
+          <caret line="40" column="40" selection-start-line="40" selection-start-column="40" selection-end-line="40" selection-end-column="40" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/front_end/pages/404.blade.php">
+    <entry file="file://$PROJECT_DIR$/resources/views/admin/donhang/partials/cardDaxuly.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="6" column="43" selection-start-line="6" selection-start-column="43" selection-end-line="6" selection-end-column="43" />
+        <state relative-caret-position="440">
+          <caret line="22" column="37" selection-start-line="22" selection-start-column="37" selection-end-line="22" selection-end-column="37" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/front_end/pages/home.blade.php">
+    <entry file="file://$PROJECT_DIR$/resources/views/admin/donhang/partials/cardDanggiao.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-99">
-          <caret line="108" column="24" selection-start-line="108" selection-start-column="24" selection-end-line="108" selection-end-column="24" />
+        <state relative-caret-position="720">
+          <caret line="36" column="57" selection-start-line="36" selection-start-column="57" selection-end-line="36" selection-end-column="57" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/front_end/layouts/header.blade.php">
+    <entry file="file://$PROJECT_DIR$/resources/views/admin/donhang/partials/card.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="600">
-          <caret line="30" column="38" selection-start-line="30" selection-start-column="38" selection-end-line="30" selection-end-column="38" />
+        <state relative-caret-position="460">
+          <caret line="23" column="42" selection-start-line="23" selection-start-column="42" selection-end-line="23" selection-end-column="42" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/front_end/layouts/master.blade.php">
+    <entry file="file://$PROJECT_DIR$/resources/views/admin/donhang/partials/cardXuly.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="615">
-          <caret line="83" column="33" selection-start-line="83" selection-start-column="33" selection-end-line="83" selection-end-column="33" />
+        <state relative-caret-position="1100">
+          <caret line="55" column="38" selection-start-line="55" selection-start-column="38" selection-end-line="55" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/DonHangController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="60" column="97" lean-forward="true" selection-start-line="60" selection-start-column="97" selection-end-line="60" selection-end-column="97" />
+          <folding>
+            <element signature="e#40#56#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/admin/layouts/sidebar.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="315">
+          <caret line="71" column="40" selection-start-line="71" selection-start-column="40" selection-end-line="71" selection-end-column="40" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/auth/login.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="178">
-          <caret line="49" column="11" selection-start-line="49" selection-start-column="11" selection-end-line="49" selection-end-column="11" />
+        <state relative-caret-position="-40">
+          <caret line="10" column="10" selection-start-line="10" selection-start-column="10" selection-end-line="10" selection-end-column="10" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/admin/danhmuc/edit.blade.php">
+    <entry file="file://$PROJECT_DIR$/resources/views/layouts/app.blade.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/SanPhamController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="541">
-          <caret line="32" column="17" selection-start-line="32" selection-start-column="17" selection-end-line="32" selection-end-column="17" />
+        <state relative-caret-position="-3885" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/admin/sanpham/show.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-600" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/admin/nhaphang/nhaphang.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1718">
+          <caret line="163" column="41" lean-forward="true" selection-start-line="163" selection-start-column="41" selection-end-line="163" selection-end-column="41" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/admin/danhmuc/list.blade.php">
+    <entry file="file://$PROJECT_DIR$/resources/views/admin/nhaphang/list.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="381">
-          <caret line="49" column="130" selection-start-line="49" selection-start-column="130" selection-end-line="49" selection-end-column="130" />
+        <state relative-caret-position="135">
+          <caret line="56" selection-start-line="56" selection-end-line="56" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/admin/nhaphang/xacnhan.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="361">
+          <caret line="89" column="79" selection-start-line="89" selection-start-column="79" selection-end-line="89" selection-end-column="79" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/front_endSearchController.php" />
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/LoaiSPController.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/DanhMucSPController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1380" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/front_end/layouts/footer.blade.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/front_end/pages/home.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1740">
+          <caret line="87" column="12" selection-start-line="87" selection-start-column="12" selection-end-line="87" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/BinhLuan.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/app.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="177" column="53" selection-start-line="177" selection-start-column="53" selection-end-line="177" selection-end-column="53" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/front_end/CartController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="400">
+          <caret line="68" column="32" lean-forward="true" selection-start-line="68" selection-start-column="32" selection-end-line="68" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/front_end/HomeController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="15" column="42" lean-forward="true" selection-start-line="15" selection-start-column="42" selection-end-line="15" selection-end-column="42" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/admin/nguoidung/create.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="9" column="10" lean-forward="true" selection-start-line="9" selection-start-column="10" selection-end-line="9" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Providers/ComposerServiceProvider.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="520">
+          <caret line="26" column="39" selection-start-line="26" selection-start-column="39" selection-end-line="26" selection-end-column="39" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/front_end/pages/detail.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="498">
-          <caret line="79" column="31" selection-start-line="79" selection-start-column="31" selection-end-line="79" selection-end-column="31" />
+        <state relative-caret-position="260">
+          <caret line="43" column="74" lean-forward="true" selection-start-line="43" selection-start-column="74" selection-end-line="43" selection-end-column="74" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/admin/nhomsanpham/edit.blade.php">
+    <entry file="file://$PROJECT_DIR$/resources/views/front_end/layouts/header.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="281">
-          <caret line="17" column="42" selection-start-line="17" selection-start-column="42" selection-end-line="17" selection-end-column="42" />
+        <state relative-caret-position="1420">
+          <caret line="71" column="13" selection-start-line="71" selection-start-column="13" selection-end-line="71" selection-end-column="13" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/admin/nhomsanpham/list.blade.php">
+    <entry file="file://$PROJECT_DIR$/app/Http/ViewComposers/nhomspComposer.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="900">
-          <caret line="45" column="37" selection-start-line="45" selection-start-column="37" selection-end-line="45" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/NhomSPController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="175">
-          <caret line="112" column="87" selection-start-line="112" selection-start-column="87" selection-end-line="112" selection-end-column="87" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/admin/danhmuc/create.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="384">
-          <caret line="28" column="22" lean-forward="true" selection-start-line="28" selection-start-column="22" selection-end-line="28" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/admin/loaisanpham/edit.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="41">
-          <caret line="17" column="42" selection-start-line="17" selection-start-column="42" selection-end-line="17" selection-end-column="42" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/admin/loaisanpham/list.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="875">
-          <caret line="51" column="140" selection-start-line="51" selection-start-column="140" selection-end-line="51" selection-end-column="140" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/LoaiSPController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2160">
-          <caret line="110" column="87" selection-start-line="110" selection-start-column="87" selection-end-line="110" selection-end-column="87" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/DanhMucSP.php">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/DanhMucSPController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="48" column="10" lean-forward="true" selection-start-line="48" selection-start-column="10" selection-end-line="48" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/admin/loaisanpham/create.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="344">
-          <caret line="30" column="40" lean-forward="true" selection-start-line="30" selection-start-column="40" selection-end-line="30" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/PhieuNhapController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="515">
-          <caret line="111" column="56" selection-start-line="111" selection-start-column="56" selection-end-line="111" selection-end-column="56" />
+        <state relative-caret-position="520">
+          <caret line="27" selection-start-line="27" selection-end-line="27" />
           <folding>
-            <element signature="e#40#60#0#PHP" expanded="true" />
+            <element signature="e#42#57#0#PHP" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/admin/tacgia/list.blade.php">
+    <entry file="file://$PROJECT_DIR$/app/Http/ViewComposers/danhmucspComposer.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="201">
-          <caret line="53" column="133" selection-start-line="53" selection-start-column="133" selection-end-line="53" selection-end-column="133" />
+        <state relative-caret-position="660">
+          <caret line="34" column="39" selection-start-line="34" selection-start-column="39" selection-end-line="34" selection-end-column="39" />
+          <folding>
+            <element signature="e#42#60#0#PHP" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/admin/tacgia/create.blade.php">
+    <entry file="file://$PROJECT_DIR$/resources/views/front_end/layouts/sidebar.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="220">
-          <caret line="24" column="68" lean-forward="true" selection-start-line="24" selection-start-column="68" selection-end-line="24" selection-end-column="68" />
+        <state>
+          <caret column="22" selection-start-column="22" selection-end-column="22" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/admin/tacgia/edit.blade.php">
+    <entry file="file://$PROJECT_DIR$/app/SanPham.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="17" column="42" selection-start-line="17" selection-start-column="42" selection-end-line="17" selection-end-column="42" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/TacGiaController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="52" column="10" lean-forward="true" selection-start-line="52" selection-start-column="10" selection-end-line="52" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/admin/nhacungcap/list.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="461">
-          <caret line="30" column="96" selection-start-line="30" selection-start-column="96" selection-end-line="30" selection-end-column="96" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/PhieuNhap.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-60" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/CTPhieuNhap.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-45" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/NhaCungCap.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="15" column="5" lean-forward="true" selection-start-line="15" selection-start-column="5" selection-end-line="15" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/admin/nhacungcap/edit.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="820">
-          <caret line="41" column="22" lean-forward="true" selection-start-line="41" selection-start-column="22" selection-end-line="41" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/admin/nhacungcap/create.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="541">
-          <caret line="56" column="31" lean-forward="true" selection-start-line="56" selection-start-column="31" selection-end-line="56" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/NhaCungCapController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="35">
-          <caret line="36" column="40" selection-start-line="36" selection-start-column="40" selection-end-line="36" selection-end-column="40" />
+        <state relative-caret-position="-40">
+          <caret line="5" column="35" selection-start-line="5" selection-start-column="35" selection-end-line="5" selection-end-column="35" />
+          <folding>
+            <element signature="e#23#62#0#PHP" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/routes/web.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="615">
-          <caret line="106" column="37" selection-start-line="106" selection-start-column="37" selection-end-line="106" selection-end-column="37" />
+        <state relative-caret-position="140">
+          <caret line="22" column="112" selection-start-line="22" selection-start-column="112" selection-end-line="22" selection-end-column="112" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/admin/nhomsanpham/create.blade.php">
+    <entry file="file://$PROJECT_DIR$/resources/views/front_end/layouts/master.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="275">
-          <caret line="27" column="26" lean-forward="true" selection-start-line="27" selection-start-column="26" selection-end-line="27" selection-end-column="26" />
+        <state relative-caret-position="1721">
+          <caret line="267" column="15" selection-start-line="267" selection-start-column="15" selection-end-line="267" selection-end-column="15" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/SanPhamController.php">
+    <entry file="file://$PROJECT_DIR$/app/LoaiSP.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-505">
-          <caret line="188" column="87" selection-start-line="188" selection-start-column="87" selection-end-line="188" selection-end-column="87" />
+        <state relative-caret-position="380">
+          <caret line="19" column="28" selection-start-line="19" selection-start-column="20" selection-end-line="19" selection-end-column="28" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/admin/layouts/master.blade.php">
+    <entry file="file://$PROJECT_DIR$/app/DanhMucSP.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-660" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/admin/sanpham/show.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2459" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/admin/sanpham/list.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="600">
-          <caret line="30" column="93" selection-start-line="30" selection-start-column="93" selection-end-line="30" selection-end-column="93" />
+        <state relative-caret-position="255">
+          <caret line="18" lean-forward="true" selection-start-line="18" selection-end-line="18" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/admin/sanpham/create.blade.php">
+    <entry file="file://$PROJECT_DIR$/app/NhomSP.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2465">
-          <caret line="28" column="26" lean-forward="true" selection-start-line="28" selection-start-column="26" selection-end-line="28" selection-end-column="26" />
+        <state relative-caret-position="95">
+          <caret line="24" lean-forward="true" selection-start-line="24" selection-end-line="24" />
+          <folding>
+            <element signature="e#23#62#0#PHP" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/admin/sanpham/edit.blade.php">
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/front_end/SearchController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-419" />
+        <state relative-caret-position="161">
+          <caret line="17" column="35" lean-forward="true" selection-start-line="17" selection-start-column="35" selection-end-line="17" selection-end-column="35" />
+          <folding>
+            <element signature="e#50#68#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/front_end/pages/category.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1240">
+          <caret line="113" column="100" selection-start-line="113" selection-start-column="100" selection-end-line="113" selection-end-column="100" />
+        </state>
       </provider>
     </entry>
   </component>

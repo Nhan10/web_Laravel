@@ -68,7 +68,13 @@ class LoginController extends Controller
 //            else
                 return redirect()->intended(route('home.index'));
         }elseif (Auth::attempt(['email'=>$request->email,'password'=>$request->password,'MaLND'=>2,'active'=>1])){
-            return redirect()->route('danhmuc.index');
+            return redirect()->route('admin.dashboard');
+        }elseif (Auth::attempt(['email'=>$request->email,'password'=>$request->password,'MaLND'=>3,'active'=>1])){
+            return redirect()->route('admin.dashboard');
+        }elseif (Auth::attempt(['email'=>$request->email,'password'=>$request->password,'MaLND'=>4,'active'=>1])){
+            return redirect()->route('admin.dashboard');
+        }elseif (Auth::attempt(['email'=>$request->email,'password'=>$request->password,'MaLND'=>5,'active'=>1])){
+            return redirect()->route('admin.dashboard');
         } else{
             //chưa xử lý đc :(
             return redirect()->route('login')->with('error', 'Không tìm thấy tài khoản của bạn!');

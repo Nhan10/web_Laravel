@@ -20,6 +20,7 @@ class CreatePhieuNhapsTable extends Migration
                 ->references('MaND')->on('NguoiDung')
                 ->onDelete('cascade');
             $table->dateTime('NgayNhap');
+            $table->double('TongTien');
             $table->text('GhiChu');
             $table->timestamps();
         });

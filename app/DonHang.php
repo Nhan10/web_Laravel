@@ -14,7 +14,7 @@ class DonHang extends Model
 
     public function nguoiDung()
     {
-        return $this->belongsTo('App\NguoiDung','MaND','MaDH');
+        return $this->belongsTo('App\NguoiDung','MaND');
     }
 
     public function nguoiDungNVGH()
@@ -44,6 +44,6 @@ class DonHang extends Model
 
     public function trangThai()
     {
-        return $this->belongsTo('App\TrangThai','MaTT','MaDH');
+        return $this->belongsTo('App\TrangThai','MaTT');
     }
 }

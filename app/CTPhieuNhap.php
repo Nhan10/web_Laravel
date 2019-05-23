@@ -10,7 +10,7 @@ class CTPhieuNhap extends Model
 
     protected $primaryKey = 'MaCTPN';
 
-    protected $fillable = ['MaPN','MaSP','MaNCC','GiaNhap','SoLuong','GhiChu'];
+    protected $fillable = ['MaPN','MaSP','MaNCC','GiaNhap','SoLuong','TongTien','GhiChu'];
 
     public function sanPham()
     {

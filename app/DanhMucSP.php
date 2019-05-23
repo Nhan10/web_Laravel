@@ -16,4 +16,17 @@ class DanhMucSP extends Model
     {
         return $this->hasMany('App\NhomSP','MaDM');
     }
+
+    public function countSanPhamByDanhMuc(DanhMucSP $danhMucSP)
+    {
+        $count = 0;
+        foreach ($danhMucSP->nhomSPs as $nhomSP)
+        {
+            foreach ($nhomSP->loaiSPs as $loaiSP)
+            {
+                $count += count($loaiSP->sanPhams);
+            }
+        }
+        return $count;
+    }
 }

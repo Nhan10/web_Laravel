@@ -28,7 +28,7 @@
     <!-- DataTales Example -->
     <div class="card shadow mb-4">
         <div class="card-header py-3">
-            <a href="{{Route('nguoidung.create')}}" class="m-0 font-weight-bold btn btn-danger">Thêm mới</a>
+            <a href="{{Route('nguoidung.create')}}" class="m-0 font-weight-bold btn btn-success">Thêm mới</a>
         </div>
         <div class="card-body">
             <div class="table-responsive">
@@ -64,7 +64,7 @@
                             <th>{{$nguoidung->loaiND->TenLoai}}</th>
                             <th>
                                 <a href="{{route('nguoidung.show',$nguoidung->MaND)}}" class="btn btn-outline-warning" {{--data-toggle="modal" data-target="#exampleModal-{{ $nguoidung->MaND }}"--}}>Phân quyền</a>
-                                <a href="{{route('nguoidung.edit',$nguoidung->MaND)}}" class="btn btn-facebook"><i class="fas fa-user-edit"></i></a>
+                                <a href="{{route('nguoidung.edit',$nguoidung->MaND)}}" class="btn btn-facebook"><i class="fas fa-edit"></i></a>
                                 <form class="d-inline" action="{{route('nguoidung.destroy',$nguoidung->MaND)}}" method="post">
                                     @method('DELETE')
                                     @csrf

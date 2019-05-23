@@ -21,4 +21,10 @@ class LoaiSP extends Model
     {
         return $this->hasMany('App\SanPham','MaLoai');
     }
+
+    public function countSanPhamByLoai(LoaiSP $loaiSP)
+    {
+        $count = count($loaiSP->sanPhams);
+        return $count;
+    }
 }

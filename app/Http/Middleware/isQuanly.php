@@ -5,7 +5,7 @@ namespace App\Http\Middleware;
 use Closure;
 use Illuminate\Support\Facades\Auth;
 
-class isAdmin
+class isQuanly
 {
     /**
      * Handle an incoming request.
@@ -16,18 +16,8 @@ class isAdmin
      */
     public function handle($request, Closure $next)
     {
-//        if(!Auth::user()->is_admin()==2){
-//            if ($request->ajax()) {
-//                return response('Forbidden', 403);
-//            }
-//            else
-//            {
-//                throw new AccessDeniedException('Forbidden');
-//            }
-//        }
-//        return $next($request);
         if (Auth::check()) {
-            if(Auth::user()->is_admin()==2 || Auth::user()->is_admin()==3 || Auth::user()->is_admin()==4 || Auth::user()->is_admin()==5){
+            if(Auth::user()->is_admin()==3){
                 return $next($request);
             } else {
                 return  ($request->ajax()) ?  response('Forbidden', 403) : redirect()->route('home.404');

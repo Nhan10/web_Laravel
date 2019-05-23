@@ -19,6 +19,11 @@ Route::get('/404', 'front_end\HomeController@error404')->name('home.404');
 Route::get('/trangchu','front_end\HomeController@Home')->name('home.index');
 Route::get('/sanpham/{MaSP}','front_end\HomeController@detailSanPham')->name('home.detail');
 
+Route::get('/theloai','front_end\HomeController@getCategory')->name('home.category');
+Route::get('/danhmucsanpham/{key}','front_end\SearchController@getSanphamByDanhmuc')->name('home.categoryDanhmuc');
+Route::get('/nhomsanpham/{key}','front_end\SearchController@getSanphamTheoNhom')->name('home.categoryNhoms');
+Route::get('/loaisanpham/{key}','front_end\SearchController@getSanphamTheoLoai')->name('home.categoryLoais');
+
 //cart_route
 Route::post('/addCart', 'front_end\CartController@store')->name('cart.add');
 Route::get('/showCart', 'front_end\CartController@index')->name('cart.index');
@@ -34,6 +39,10 @@ Route::post('/order', 'front_end\OrderController@store')->name('order.store');
 Route::get('/nguoidung/activation/{token}', 'NguoiDungController@userActivation');
 
 Route::prefix('admin')->middleware('admin')->group(function (){
+
+    Route::get('/index.html',function (){
+        return view('admin.dashboard');
+    })->name('admin.dashboard');
 
    Route::prefix('danhmuc')->group(function (){
        Route::get('/danhsach','DanhMucSPController@index')->name('danhmuc.index');
@@ -100,7 +109,7 @@ Route::prefix('admin')->middleware('admin')->group(function (){
         Route::PUT('/edit/{MaSP}','NguoiDungController@update')->name('nguoidung.update');
         Route::DELETE('/destroy/{MaND}','NguoiDungController@destroy')->name('nguoidung.destroy');
     });
-
+/*CHưa xong nhập hàng*/
     Route::prefix('nhaphang')->group(function (){
         Route::get('/danhsach','PhieuNhapController@index')->name('nhaphang.index');
         Route::get('/chonhang','PhieuNhapController@chonhang')->name('nhaphang.chonhang');
@@ -113,6 +122,18 @@ Route::prefix('admin')->middleware('admin')->group(function (){
         });
     });
 
+    Route::prefix('donhang')->group(function (){
+        Route::get('/danhsach','DonHangController@index')->name('donhang.index');
+        Route::post('/timkiem','DonHangController@locTheoDieuKien')->name('donhang.loc');
+        Route::PUT('/xulydonhang/{MaDH}','DonHangController@xulydonhang')->name('donhang.xuly');
+        Route::PUT('/xuathang/{MaDH}','DonHangController@xuathang')->name('donhang.xuathang');
+        Route::PUT('/giaohang/{MaDH}','DonHangController@giaohang')->name('donhang.giaohang');
+        Route::get('/create','DonHangController@create')->name('donhang.create');
+        Route::post('/create','DonHangController@store')->name('donhang.store');
+        Route::get('/edit/{MaDHH}','DonHangController@edit')->name('donhang.edit');
+        Route::PUT('/edit/{MaDHH}','DonHangController@update')->name('donhang.update');
+        Route::DELETE('/destroy/{MaDHH}','DonHangController@destroy')->name('donhang.destroy');
+    });
 });
 
 Auth::routes();

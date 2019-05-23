@@ -62,7 +62,7 @@ class SanPhamController extends Controller
             'ngonNgu' => 'required|max:255',
             'nXB' => 'required|max:255',
             'namXB' => 'required|Numeric',
-            'dichGia' => 'required|max:155',
+            'dichGia' => 'max:155',
         ];
         $customMessages = [
             'required' => 'Bạn phải nhập :attribute!',
@@ -163,7 +163,7 @@ class SanPhamController extends Controller
             'ngonNgu' => 'required|max:255',
             'nXB' => 'required|max:255',
             'namXB' => 'required|Numeric',
-            'dichGia' => 'required|max:155',
+            'dichGia' => 'max:155',
         ];
         $customMessages = [
             'required' => 'Bạn phải nhập :attribute!',

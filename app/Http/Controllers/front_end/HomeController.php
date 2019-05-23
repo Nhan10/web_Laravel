@@ -10,19 +10,29 @@ use App\LoaiSP;
 
 class HomeController extends Controller
 {
-    public function Home(){
+    public function Home()
+    {
         $sanphams = SanPham::all();
         $loaisps = LoaiSP::take(5)->get();
         $nhomsps = NhomSP::take(5)->get();
         return view('front_end.pages.home',compact(['sanphams','loaisps','nhomsps']));
     }
 
-    public function detailSanPham($MaSP){
+    public function detailSanPham($MaSP)
+    {
         $sanpham = SanPham::find($MaSP);
         return view('front_end.pages.detail',compact('sanpham'));
     }
 
-    public function error404(){
+    public function error404()
+    {
         return view('front_end.pages.404');
+    }
+
+    public function getCategory()
+    {
+        $loaisps = LoaiSP::take(5)->get();
+        $nhomsps = NhomSP::take(5)->get();
+        return view('front_end.pages.category',compact(['sanphams','loaisps','nhomsps']));
     }
 }

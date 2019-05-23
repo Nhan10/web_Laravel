@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\Validator;
 use App\CTPhieuNhap;
 use App\NhaCungCap;
 use App\PhieuNhap;
@@ -34,7 +35,7 @@ class PhieuNhapController extends Controller
     public function chonhang(Request $request)
     {
         if (($request->listSP)==null){
-            return redirect()->route('nhaphang.index')->with('error','Bạn phải chọn hàng cần nhập!');
+            return redirect()->route('nhaphang.index')->with('error','Bạn phải chọn sản phẩm cần nhập !');
         }
 
         foreach ($request->listSP as $sp)
@@ -47,57 +48,85 @@ class PhieuNhapController extends Controller
 
     public function nhaphangct(Request $request)
     {
+        $giaban = (integer)SanPham::find($request->MaSP)->Gia;
         $rules = [
             'MaSP' => 'required',
             'MaNCC' => 'required',
-            'GiaNhap' => 'required',
-            'SoLuong' => 'required',
+            'GiaNhap' => 'required|numeric|between:1,'.$giaban.'',
+            'SoLuong' => 'required|integer|min:1',
+            'GhiChu' => 'required|max:255',
         ];
         $customMessages = [
-            'required' => ':attribute không được để trống!',
-            'unique' => ':attribute không được trùng nhau!',
-            'max' => ':attribute không được dài quá :max ký tự',
-            'min' => ':attribute phải dài hơn :min ký tự'
+            'required' => ':attribute không được để trống !',
+            'unique' => ':attribute không được trùng nhau !',
+            'max' => ':attribute không được dài quá :max ký tự !',
+            'min' => ':attribute phải lớn hơn :min !',
+            'between' => ':attribute phải nằm trong khoảng :min và :max !',
+            'integer' => ':attribute phải là số nguyên !',
+            'numeric' => ':attribute phải là số!'
         ];
         $customName = [
             'MaSP' => 'Sản phẩm',
             'MaNCC' => 'Nhà cung cấp',
             'GiaNhap' => 'Giá nhập',
             'SoLuong' => 'Số lượng',
+            'GhiChu' => 'Ghi chú',
         ];
-        $this->validate($request, $rules, $customMessages,$customName);
+        $validator = Validator::make($request->all(), $rules, $customMessages,$customName);
 
-        PhieuNhap::addToPN($request->MaSP,$request->MaNCC,$request->GiaNhap,$request->SoLuong);
+        if ($validator->fails()) {
+            return response()->json(['errors'=>$validator->errors()->all()],422);
+        }
+
+        PhieuNhap::addToPN($request->MaSP,$request->MaNCC,$request->GiaNhap,$request->SoLuong,$request->GhiChu);
 
         if ($request->ajax()){
-            return response()->json(['success'=>'Thêm thành công!']);
+            return response()->json(['success'=>'Thêm thành công sản phẩm "'.SanPham::find($request->MaSP)->TenSP.'" vào danh sách nhập tạm thời !'],200);
         }
         return redirect()->back()->with('success','Thêm thành công!');
     }
 
     public function huynhap()
     {
+        if (!(Session::get('ctphieunhap'))){
+            return redirect()->route('nhaphang.index')->with('error','Nhập hàng thất bại vui lòng kiểm tra lại!');
+        }
         Session()->forget('ctphieunhap');
         return redirect()->route('nhaphang.index')->with('success','Hủy nhập thành công');
     }
 
     public function xacnhan()
     {
+        if (!(Session::get('ctphieunhap'))){
+            return redirect()->back()->with('error','Bạn phải thêm đầy đủ thông tin!');
+        }
         $ctphieunhapss = Session::get('ctphieunhap');
         return view('admin.nhaphang.xacnhan',compact('ctphieunhapss'));
     }
 
     public function store()
     {
+        if (!(Session::get('ctphieunhap'))){
+            return redirect()->route('nhaphang.index')->with('error','Nhập hàng thất bại vui lòng kiểm tra lại!');
+        }
 //        dd($sps);
 //        dd(Session::get('ctphieunhap'));
+
+        $total = 0;
+        foreach(Session::get('ctphieunhap') as $keys => $ctphieunhaps) {
+            $total += (int)(($ctphieunhaps['GiaNhap']) * ($ctphieunhaps['SoLuong']));
+        }
+//        dd($total);
+
         $phieunhap = new PhieuNhap();
         $phieunhap->MaND = Auth::user()->MaND;
         $phieunhap->NgayNhap = date('Y-m-d H:i:s');
+        $phieunhap->TongTien = $total;
         $phieunhap->GhiChu = '';
         $phieunhap->save();
         $ctphieunhapss = Session::get('ctphieunhap');
 //        dd($ctphieunhapss);
+
         foreach ($ctphieunhapss as $ct)
         {
             $ctphieunhap = new CTPhieuNhap();
@@ -106,6 +135,7 @@ class PhieuNhapController extends Controller
             $ctphieunhap->MaNCC = $ct['MaNCC'];
             $ctphieunhap->GiaNhap = $ct['GiaNhap'];
             $ctphieunhap->SoLuong = $ct['SoLuong'];
+            $ctphieunhap->TongTien = ($ct['GiaNhap'])*($ct['SoLuong']);
             $ctphieunhap->GhiChu = $ct['GhiChu'];
             $ctphieunhap->save();
             $sanpham = SanPham::find($ct['MaSP']);

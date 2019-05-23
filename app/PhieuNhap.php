@@ -11,7 +11,7 @@ class PhieuNhap extends Model
 
     protected $primaryKey = 'MaPN';
 
-    protected $fillable = ['MaND','NgayNhap','GhiChu'];
+    protected $fillable = ['MaND','NgayNhap','TongTien','GhiChu'];
 
     public function nguoiDung()
     {
@@ -23,20 +23,25 @@ class PhieuNhap extends Model
         return $this->hasMany('App\CTPhieuNhap','MaPN');
     }
 
-    public static function addToPN($MaSP,$MaNCC,$GiaNhap,$SoLuong)
+    public static function addToPN($MaSP,$MaNCC,$GiaNhap,$SoLuong,$GhiChu)
     {
         $ctphieunhap = Session::get('ctphieunhap');
-        $ctphieunhap[$MaSP] = [
-            "MaSP" => $MaSP,
-            "MaNCC" => $MaNCC,
-            "GiaNhap" => $GiaNhap,
-            "SoLuong" => $SoLuong,
-            "GhiChu" => '',
-        ];
+//        if (isset($ctphieunhap[$MaSP]))
+//        {
+//            $ctphieunhap[$MaSP]['SoLuong']+=$SoLuong;
+//        }
+//        else{
+            $ctphieunhap[$MaSP] = [
+                "MaSP" => $MaSP,
+                "MaNCC" => $MaNCC,
+                "GiaNhap" => $GiaNhap,
+                "SoLuong" => $SoLuong,
+                "GhiChu" => $GhiChu,
+            ];
+//        }
 
         Session::put('ctphieunhap', $ctphieunhap);
         //dd(Session::get('cart'));
 //        return redirect()->back();
     }
-
 }

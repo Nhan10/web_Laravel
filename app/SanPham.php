@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\App;
 
 class SanPham extends Model
 {
@@ -44,4 +45,5 @@ class SanPham extends Model
     {
         return $this->hasMany('App\CTPhieuNhap','MaSP');
     }
+
 }

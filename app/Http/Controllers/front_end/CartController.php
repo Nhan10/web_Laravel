@@ -66,7 +66,7 @@ class CartController extends Controller
             ]);
 //        }
 
-        return redirect()->route('home.index');
+        return redirect()->back();
     }
 
     /**

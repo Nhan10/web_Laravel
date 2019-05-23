@@ -29,6 +29,7 @@ class CreateCTPhieuNhapsTable extends Migration
                 ->onDelete('cascade');
             $table->double('GiaNhap');
             $table->integer('SoLuong');
+            $table->double('TongTien');
             $table->text('GhiChu');
             $table->timestamps();
         });

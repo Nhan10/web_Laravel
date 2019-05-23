@@ -61,14 +61,14 @@ class NguoiDungController extends Controller
             'max' => ':attribute không được dài quá :max ký tự',
             'min' => ':attribute phải dài hơn :min ký tự'
         ];
-        $customName = [
+        $customValidationAttributes = [
             'tenND' => 'Tên người dùng',
             'email' => 'email',
             'password' => 'Mật khẩu',
             'diaChi' => 'Địa chỉ',
             'sDT' => 'Số điện thoại',
         ];
-        $this->validate($request, $rules, $customMessages,$customName);
+        $this->validate($request, $rules, $customMessages,$customValidationAttributes);
 
         $nguoidung = new NguoiDung();
         $nguoidung->TenND = $request->tenND;
@@ -127,7 +127,7 @@ class NguoiDungController extends Controller
     {
         $rules = [
             'tenND' => 'required|max:155',
-            'email' => 'required',
+//            'email' => 'required',
             'password' => 'required|min:8',
             'diaChi' => 'required|max:155',
             'sDT' => 'required|max:10',
@@ -138,18 +138,18 @@ class NguoiDungController extends Controller
             'max' => ':attribute không được dài quá :max ký tự',
             'min' => ':attribute phải dài hơn :min ký tự'
         ];
-        $customName = [
+        $customValidationAttributes = [
             'tenND' => 'Tên người dùng',
-            'email' => 'email',
+//            'email' => 'email',
             'password' => 'Mật khẩu',
             'diaChi' => 'Địa chỉ',
             'sDT' => 'Số điện thoại',
         ];
-        $this->validate($request, $rules, $customMessages,$customName);
+        $this->validate($request, $rules, $customMessages,$customValidationAttributes);
 
         $nguoidung = NguoiDung::find($id);
         $nguoidung->TenND = $request->tenND;
-        $nguoidung->email = $request->email;
+//        $nguoidung->email = $request->email;
         $nguoidung->password = Hash::make($request->password);
         $nguoidung->DiaChi = $request->diaChi;
         $nguoidung->SDT = $request->sDT;

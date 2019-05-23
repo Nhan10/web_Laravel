@@ -88,31 +88,31 @@
     </style>
 <div class="row card shadow">
     <nav aria-label="breadcrumb">
-        <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="#">Sách tiếng việt</a></li>
-            <li class="breadcrumb-item"><a href="#">Văn học</a></li>
-            <li class="breadcrumb-item active" aria-current="page">Data</li>
+        <ol class="breadcrumb"  style="background: #1a87f4">
+            <li class="breadcrumb-item"><a href="#"  style="color: #fff">Sách tiếng việt</a></li>
+            <li class="breadcrumb-item"><a href="#"  style="color: #fff">Văn học</a></li>
+            <li class="breadcrumb-item active" aria-current="page"  style="color: #fff">Data</li>
         </ol>
     </nav>
 
     <div class="container-fluid">
         <div class="row pt-md">
-            @foreach($sanphams as $sanpham)
-                <div class=" col-md-2 cart-list" style="width: 14rem;">
-                    <a href="{{route('home.detail',$sanpham->MaSP)}}">
-                        <img src="{{asset('storage/'.$sanpham->hinhAnhs[0]->DuongDan)}}" height="210" class="card-img-top" alt="{{$sanpham->TenSP}}">
+            {{--@foreach($sanphams as $sanpham)--}}
+                {{--<div class=" col-md-2 cart-list" style="width: 14rem;">--}}
+                    {{--<a href="{{route('home.detail',$sanpham->MaSP)}}">--}}
+                        {{--<img src="{{asset('storage/'.$sanpham->hinhAnhs[0]->DuongDan)}}" height="210" class="card-img-top" alt="{{$sanpham->TenSP}}">--}}
                         {{--<div class="card-body">--}}
-                        <h5 class="card-title">{{$sanpham->TenSP}}</h5>
-                        <p class="card-text">{{number_format($sanpham->Gia)}}</p>
+                        {{--<h5 class="card-title">{{$sanpham->TenSP}}</h5>--}}
+                        {{--<p class="card-text">{{number_format($sanpham->Gia)}}</p>--}}
                         {{--<a href="#" class="btn btn-primary">Go somewhere</a>--}}
                         {{--</div>--}}
-                    </a>
-                </div>
-            @endforeach
+                    {{--</a>--}}
+                {{--</div>--}}
+            {{--@endforeach--}}
                 @foreach($sanphams as $sanpham)
                 <div class="col-md-2 profile">
                     <div class="img-box">
-                        <img src="{{asset('storage/'.$sanpham->hinhAnhs[0]->DuongDan)}}" height="210" class="card-img-top">
+                        <img src="{{asset('storage/'.$sanpham->hinhAnhs[0]->DuongDan)}}" height="240" class="card-img-top">
                         <ul class="text-center">
                             <form action="{{route('cart.add')}}" method="post" id="cart-form-{{$sanpham->MaSP}}" style="display: none">
                                 @csrf

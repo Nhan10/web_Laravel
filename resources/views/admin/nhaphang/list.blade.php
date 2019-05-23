@@ -4,7 +4,7 @@
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
             <li class="breadcrumb-item"><a href="#">Admin</a></li>
-            <li class="breadcrumb-item active text-dark" aria-current="page">Chọn hàng cần nhập</li>
+            <li class="breadcrumb-item active text-dark" aria-current="page">Chọn sản phẩm cần nhập</li>
         </ol>
     </nav>
 
@@ -33,6 +33,11 @@
             <div class="card-header py-3">
                 {{--<a href="{{Route('nhaphang.create')}}" class="m-0 font-weight-bold btn btn-danger">Thêm mới</a>--}}
                 <button type="submit" class="m-0 font-weight-bold btn btn-danger">Xác nhận chọn</button>
+                <div class="pt-2 m-0" style="display: inline-table">
+                    <p class="alert alert-warning m-0 p-0">(*) Bạn vui lòng ticks vào sản phẩm cần nhập để thêm vào danh sách nhập hàng.<br>
+                        (*) có thể ticks nhiều sản phẩm cùng lúc.<br>
+                        (*) sau khi xong bạn hãy click vào xác nhận chọn.</p>
+                </div>
             </div>
             <div class="card-body">
                 <div class="table-responsive">

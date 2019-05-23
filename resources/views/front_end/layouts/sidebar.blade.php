@@ -1,23 +1,149 @@
-<div class="container-fluid side_bar">
+<div class="side_bar">
     <div class="row">
         <div class="col-md-3">
-            <ul class="nav flex-column nav_sidebar row">
-                <li class="nav-link" style="background-color: #1a87f4; color: white; text-align: center; font-weight: bold;font-size: large"
-                >Danh Mục</li>
+            {{--<ul class="nav flex-column nav_sidebar row">--}}
+                {{--<li class="nav-link" style="background-color: #1a87f4; color: white; text-align: center; font-weight: bold;font-size: large"--}}
+                {{-->Danh Mục</li>--}}
+                    {{--@foreach($nhomsps as $nhomsp)--}}
+                    {{--<!-- Default dropright button -->--}}
+                    {{--<li class="nav-item dropright" style="border-bottom: 1px solid #1a87f4">--}}
+                        {{--<a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">--}}
+                            {{--{{$nhomsp->TenNSP}}--}}
+                        {{--</a>--}}
+                        {{--<div class="dropdown-menu">--}}
+                                {{--@foreach($nhomsp->loaiSPs as $loaisps1)--}}
+                            {{--<a class="nav-link" href="#" style="border-bottom: 1px solid #1a87f4">{{$loaisps1->TenLoai}}</a>--}}
+                                {{--@endforeach--}}
+                        {{--</div>--}}
+                    {{--</li>--}}
+                    {{--@endforeach--}}
+            {{--</ul>--}}
+            <style>
+                #mainnav{
+                    transition: all 0.3s;
+                }
+                #mainnav ul{
+                    list-style: none;
+                    padding: 0px;
+                    width: 100%;
+                    text-align: left;
+                    border: 2px solid #1a87f4;
+                }
+                #mainnav ul li{
+                    position: relative;
+                    width: 100%;
+                    height: 40px;
+                    line-height: 40px;
+                    border-bottom: 1px solid #1a87f4;
+                }
+                #mainnav ul .thefirst{
+                    background: #1a87f4;
+                    text-align: center;
+                }
+                #mainnav ul .thefirst a{
+                    color: #fff;
+                }
+
+                #mainnav ul li a{
+                    text-decoration: none;
+                    color: #1a87f4;
+                    font-weight: bold;
+                    padding: 0 16px;
+                    display: block;
+                }
+                #mainnav li a:hover{
+                    background: #1a87f4;
+                    color: #fff;
+                }
+                #mainnav .sub-menu{
+                    position: absolute;
+                    left: 100%;
+                    top: 0px;
+                    width: 100%;
+                    display: none;
+                    text-align: left;
+                    border-left: 1px solid #1a87f4;
+                    font-size: 90%;
+                    border-radius: 0px 10px 10px 0px;
+                    z-index: 1;
+                }
+                #mainnav li:hover .sub-menu{
+                    display: block;
+                    background: #fff;
+                    color: red;
+                }
+                #mainnav .sub-menu2{
+                    position: absolute;
+                    left: 100%;
+                    top: 0;
+                    width: 100%;
+                    border-left: 1px solid #1a87f4;
+                    border-radius: 0px 10px 10px 0px;
+                    display: none;
+                    z-index: 1;
+                    background: #fff;
+                }
+                #mainnav .sub-menu li:hover .sub-menu2{
+                    display: block;
+                }
+                #mainnav .sub-menu3{
+                    position: absolute;
+                    left: 100%;
+                    top: 0;
+                    width: 100%;
+                    border-left: 1px solid #1a87f4;
+                    border-radius: 0px 10px 10px 0px;
+                    display: none;
+                    z-index: 2;
+                    background: #fff;
+                }
+                #mainnav .sub-menu2 li:hover .sub-menu3{
+                    display: block;
+                }
+            </style>
+            <div id="mainnav" class="row">
+                <ul>
+                    <li class="thefirst"><a href="#">DANH MỤC</a></li>
                     @foreach($nhomsps as $nhomsp)
-                    <!-- Default dropright button -->
-                    <li class="nav-item dropright" style="border-bottom: 1px solid #1a87f4">
-                        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
-                            {{$nhomsp->TenNSP}}
-                        </a>
-                        <div class="dropdown-menu">
-                                @foreach($nhomsp->loaiSPs as $loaisps1)
-                            <a class="nav-link" href="#" style="border-bottom: 1px solid #1a87f4">{{$loaisps1->TenLoai}}</a>
-                                @endforeach
-                        </div>
+                    <li><a href="{{route('home.categoryNhoms',$nhomsp->MaNSP)}}">{{$nhomsp->TenNSP}}</a>
+                        <ul class="sub-menu">
+                            @foreach($nhomsp->loaiSPs as $loaisp)
+                            <li><a href="{{route('home.categoryLoais',$loaisp->MaLoai)}}">{{$loaisp->TenLoai}}</a></li>
+                            @endforeach
+                            {{--<li><a href="#">Wordpress</a>--}}
+                                {{--<ul class="sub-menu2">--}}
+                                    {{--<li><a href="#">item 1</a></li>--}}
+                                    {{--<li><a href="#">item 2</a></li>--}}
+                                    {{--<li><a href="#">item 3</a></li>--}}
+                                {{--</ul>--}}
+                            {{--</li>--}}
+                            {{--<li><a href="#">Hosting-Domain</a></li>--}}
+                            {{--<li><a href="#">SEO</a></li>--}}
+                            {{--<li><a href="#">Tai nguyen</a></li>--}}
+                            {{--<li><a href="#">Ma nguon mo</a></li>--}}
+                            {{--<li><a href="#">Web development</a></li>--}}
+                            {{--<li><a href="#">Cong cu</a>--}}
+                                {{--<ul class="sub-menu2">--}}
+                                    {{--<li><a href="#"> item 1</a></li>--}}
+                                    {{--<li><a href="#"> item 2</a>--}}
+                                        {{--<ul class="sub-menu3">--}}
+                                            {{--<li><a href="#">item 1.a</a></li>--}}
+                                            {{--<li><a href="#">item 2.a</a></li>--}}
+                                            {{--<li><a href="#">item 3.a</a></li>--}}
+                                        {{--</ul>--}}
+                                    {{--</li>--}}
+                                    {{--<li><a href="#">item 3</a></li>--}}
+                                {{--</ul>--}}
+                            {{--</li>--}}
+                        </ul>
                     </li>
                     @endforeach
-            </ul>
+                    {{--<li><a href="#">Danh gia</a></li>--}}
+                    {{--<li><a href="#">Ma giam gia</a></li>--}}
+                    {{--<li><a href="#">Hoi dap</a></li>--}}
+                    {{--<li><a href="#">Bat dau</a></li>--}}
+                </ul>
+            </div>
         </div>
         <div class="col-md-9">
             <div id="slide_top" class="carousel slide row" data-ride="carousel">

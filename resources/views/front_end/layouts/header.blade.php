@@ -24,8 +24,13 @@
     <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
     <style>
+        .containers{
+            max-width: 85%;
+            margin: 0 auto;
+            padding: 0;
+        }
         #header{
-            margin-bottom: 1em;
+            /*margin-bottom: 1em;*/
         }
         .content_header{
             background-color: #1a87f4;
@@ -47,22 +52,24 @@
         }
         #slide_top{
             margin-left: 0.5em;
+            z-index: 0;
         }
         .side_bar{
             margin-bottom: 0.5em;
+            margin-top: 1em;
         }
         #footer{
             background-color: #1a87f4;
             color: #ffffff;
             margin-top: 1em;
         }
-        .cart-list a:hover{
-            text-decoration: none;
-            color: #000000;
-        }
-        .cart-list a{
-            color: #000;
-        }
+        /*.cart-list a:hover{*/
+            /*text-decoration: none;*/
+            /*color: #000000;*/
+        /*}*/
+        /*.cart-list a{*/
+            /*color: #000;*/
+        /*}*/
     </style>
 </head>
 <body>

@@ -38,17 +38,19 @@
             margin-left: 0.2em;
         }
     </style>
+    <div class="row">
+        <nav aria-label="breadcrumb" style="width: 100%">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="#">Trang chủ</a></li>
+                <li class="breadcrumb-item"><a href="#">{{$sanpham->loaiSP->nhomSP->danhMucSP->TenDM}}</a></li>
+                <li class="breadcrumb-item"><a href="#">{{$sanpham->loaiSP->nhomSP->TenNSP}}</a></li>
+                <li class="breadcrumb-item"><a href="#">{{$sanpham->loaiSP->TenLoai}}</a></li>
+                <li class="breadcrumb-item active text-dark" aria-current="page">{{$sanpham->TenSP}}</li>
+            </ol>
+        </nav>
+    </div>
 
-    <nav aria-label="breadcrumb">
-        <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="#">{{$sanpham->loaiSP->nhomSP->danhMucSP->TenDM}}</a></li>
-            <li class="breadcrumb-item"><a href="#">{{$sanpham->loaiSP->nhomSP->TenNSP}}</a></li>
-            <li class="breadcrumb-item"><a href="#">{{$sanpham->loaiSP->TenLoai}}</a></li>
-            <li class="breadcrumb-item active text-dark" aria-current="page">{{$sanpham->TenSP}}</li>
-        </ol>
-    </nav>
-
-    <div class="card shadow mb-4" style="padding: 1em;">
+    <div class="card shadow mb-4 row" style="padding: 1em;">
         <div class="container-fluid">
             <div class="row">
                 <div class="col-md-4">
@@ -107,7 +109,7 @@
         </div>
     </div>
 
-    <div class="card shadow mb-4">
+    <div class="card shadow mb-4 row">
         <div class="card-header py-3">
             <h4 class="TieuDe">Thông tin chi tiết</h4>
         </div>
@@ -116,7 +118,13 @@
             <table class="table table-striped table_tt">
                 <tr>
                     <td>Nhà cung cấp</td>
-                    <td>{{\App\NhaCungCap::find($sanpham->cTPhieuNhaps[0]->MaNCC)->TenNCC}}</td>
+                    <td>
+                        @if(count($sanpham->cTPhieuNhaps)>0)
+                            {{\App\NhaCungCap::find($sanpham->cTPhieuNhaps[0]->MaNCC)->TenNCC}}
+                        @else
+                            Chưa nhập hàng
+                        @endif
+                    </td>
                 </tr>
                 <tr>
                     <td>Tác giả</td>
@@ -158,7 +166,7 @@
         </div>
     </div>
 
-    <div class="card shadow mb-4">
+    <div class="card shadow mb-4 row">
         <div class="card-header py-3">
             <h4 class="TieuDe">Giới thiệu sách</h4>
         </div>
@@ -168,7 +176,7 @@
         </div>
     </div>
 
-    <div class="card shadow mb-4">
+    <div class="card shadow mb-4 row">
         <div class="card-header py-3">
             <h4 class="TieuDe">Bình luận</h4>
         </div>

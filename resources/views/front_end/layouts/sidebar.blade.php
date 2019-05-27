@@ -104,11 +104,17 @@
             <div id="mainnav" class="row">
                 <ul>
                     <li class="thefirst"><a href="#">DANH MỤC</a></li>
-                    @foreach($nhomsps as $nhomsp)
-                    <li><a href="{{route('home.categoryNhoms',$nhomsp->MaNSP)}}">{{$nhomsp->TenNSP}}</a>
+                    @foreach($danhmucspComposer as $danhmucsp)
+                    <li><a href="{{route('home.categoryDanhmuc',$danhmucsp->MaDM)}}">{{$danhmucsp->TenDM}}</a>
                         <ul class="sub-menu">
-                            @foreach($nhomsp->loaiSPs as $loaisp)
-                            <li><a href="{{route('home.categoryLoais',$loaisp->MaLoai)}}">{{$loaisp->TenLoai}}</a></li>
+                            @foreach($danhmucsp->nhomSPs as $nhomsp)
+                                <li><a href="{{route('home.categoryNhoms',[$nhomsp->MaNSP])}}">{{$nhomsp->TenNSP}}</a>
+                                    <ul class="sub-menu2">
+                                        @foreach($nhomsp->loaiSPs as $loaisp)
+                                        <li><a href="{{route('home.categoryLoais',[$loaisp->MaLoai,$loaisp->MaNSP])}}">{{$loaisp->TenLoai}}</a></li>
+                                        @endforeach
+                                    </ul>
+                                </li>
                             @endforeach
                             {{--<li><a href="#">Wordpress</a>--}}
                                 {{--<ul class="sub-menu2">--}}

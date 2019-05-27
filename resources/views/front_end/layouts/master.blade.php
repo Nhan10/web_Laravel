@@ -190,14 +190,14 @@
                                 {{--<li class="nav-item"><a href="#">Link 1</a></li>--}}
                                 @foreach($danhmucspComposer as $danhmucsp)
                                     @if(count($danhmucsp->nhomsps)>0)
-                                        <li class="nav-item"><a href="#">{{$danhmucsp->TenDM}}</a>
+                                        <li class="nav-item"><a href="{{route('home.categoryDanhmuc',$danhmucsp->MaDM)}}">{{$danhmucsp->TenDM}}</a>
                                             <ul class="sub-menu navbar-nav">
                                                 @foreach($danhmucsp->nhomsps as $nhomsp)
                                                     @if(count($nhomsp->loaisps)>0)
                                                         <li class="nav-item"><a href="{{route('home.categoryNhoms',$nhomsp->MaNSP)}}">{{$nhomsp->TenNSP}}</a>
                                                             <ul class="sub-menu2 navbar-nav">
                                                                 @foreach($nhomsp->loaisps as $loaisp)
-                                                                    <li class="nav-item"><a href="{{route('home.categoryLoais',$loaisp->MaLoai)}}">{{$loaisp->TenLoai}}</a></li>
+                                                                    <li class="nav-item"><a href="{{route('home.categoryLoais',[$loaisp->MaLoai,$loaisp->MaNSP])}}">{{$loaisp->TenLoai}}</a></li>
                                                                 @endforeach
                                                             </ul>
                                                         </li>

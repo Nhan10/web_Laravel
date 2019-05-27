@@ -15,6 +15,8 @@ Route::get('/', function () {
     return redirect()->route('home.index');
 });
 
+//Route::any('{all?}','front_end\HomeController@error404')->where('all','.*');
+
 Route::get('/404', 'front_end\HomeController@error404')->name('home.404');
 Route::get('/trangchu','front_end\HomeController@Home')->name('home.index');
 Route::get('/sanpham/{MaSP}','front_end\HomeController@detailSanPham')->name('home.detail');
@@ -22,7 +24,10 @@ Route::get('/sanpham/{MaSP}','front_end\HomeController@detailSanPham')->name('ho
 Route::get('/theloai','front_end\HomeController@getCategory')->name('home.category');
 Route::get('/danhmucsanpham/{key}','front_end\SearchController@getSanphamByDanhmuc')->name('home.categoryDanhmuc');
 Route::get('/nhomsanpham/{key}','front_end\SearchController@getSanphamTheoNhom')->name('home.categoryNhoms');
-Route::get('/loaisanpham/{key}','front_end\SearchController@getSanphamTheoLoai')->name('home.categoryLoais');
+Route::get('/loaisanpham/{key}/{key2}','front_end\SearchController@getSanphamTheoLoai')->name('home.categoryLoais');
+
+Route::get('/timkiemtheoloai','front_end\SearchController@searchSanphamByloai')->name('home.searchbyloai');
+Route::get('/timkiemtheonhom','front_end\SearchController@searchSanphamByNhom')->name('home.searchbynhom');
 
 //cart_route
 Route::post('/addCart', 'front_end\CartController@store')->name('cart.add');

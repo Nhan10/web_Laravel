@@ -1,10 +1,10 @@
 @extends('front_end.layouts.master')
 @section('content')
     {{--@include('front_end.layouts.sidebar')--}}
-    <div class="container">
+    <div class="container-fluid" style="margin-top: 1em">
         <div class="row justify-content-center">
             @if($carts->count()>0)
-            <div class="col-md-8">
+            <div class="col-md-9">
                 <div class="card shadow mb-4">
                     @foreach($carts as $cart)
                         <div class="card-body row">
@@ -30,12 +30,13 @@
                         </div>
                         <hr>
                     @endforeach
-
-                        <a href="{{route('cart.empty')}}">Xóa giỏ hàng</a>
-                        <a href="{{route('home.index')}}">Cập nhật giỏ hàng</a>
+                        <div class="card-footer">
+                            <a href="{{route('cart.empty')}}" class="btn btn-outline-primary" style="width: 200px;">Xóa giỏ hàng</a>
+                            <a href="{{route('home.index')}}" class="btn btn-outline-primary" style="width: 200px;">Cập nhật giỏ hàng</a>
+                        </div>
                 </div>
             </div>
-            <div class="col-md-4">
+            <div class="col-md-3">
                 <div class="card shadow mb-4">
                     <div class="row justify-content-center">
                         <div class="col-md-11">
@@ -48,8 +49,8 @@
                     <a href="{{route('cart.order')}}" class="btn btn-danger">Tiến hành đặt hàng</a>
                 </div>
             </div>
-                @else
-                <div class="col-md-8" style="margin-bottom: 22em">
+            @else
+                <div class="col-md-8" style="margin-bottom: 22em;margin-top: 1em">
                     <h3>Giỏ hàng trống</h3>
                     <p>Chưa có sản phẩm trong giỏ hàng của bạn.</p>
                     <p>Click <a href="{{route('home.index')}}">vào đây</a> để quay lại trang chủ.</p>

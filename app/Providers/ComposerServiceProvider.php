@@ -24,7 +24,7 @@ class ComposerServiceProvider extends ServiceProvider
     public function boot()
     {
         view()->composer(
-            'front_end.layouts.master',
+            ['front_end.layouts.master','front_end.pages.category','front_end.layouts.sidebar'],
             'App\Http\ViewComposers\danhmucspComposer'
         );
 

@@ -23,6 +23,11 @@ class NhomSP extends Model
         return $this->hasMany('App\LoaiSP','MaNSP');
     }
 
+    public function sanPhams()
+    {
+        return $this->hasManyThrough('App\SanPham', 'App\LoaiSP','MaNSP','MaLoai');
+    }
+
     public function countSanPhamByNhom(NhomSP $nhomSP)
     {
         $count = 0;
@@ -33,14 +38,15 @@ class NhomSP extends Model
         return $count;
     }
 
-
-    public function getSanphamByNhom($loaispOfnhomsp)
-    {
-        $sanphams = [];
-        foreach ($loaispOfnhomsp as $loai)
-        {
-            $sanphams[] = $loai->sanPhams()->where('MaLoai',$loai->MaLoai)->get();
-        }
-        return $sanphams;
-    }
+//
+//    public function getSanphamByNhom($nhomspOfDanhmucsp)
+//    {
+//        $sanphams = [];
+//        foreach ($nhomspOfDanhmucsp as $nhom) {
+//            if (count($nhom->sanPhams) > 0) {
+//                $sanphams[] = $nhom->sanPhams()->get();
+//            }
+//        }
+//        return $sanphams;
+//    }
 }

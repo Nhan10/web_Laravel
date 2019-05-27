@@ -82,9 +82,9 @@
     <div class="card shadow mb-4">
         <div class="card-body row">
             <div class="col-md-6">
-        <div class="card-header py-3">
-            <h4 class="TieuDe">Thông tin chi tiết</h4>
-        </div>
+                <div class="card-header py-3">
+                    <h4 class="TieuDe">Thông tin chi tiết</h4>
+                </div>
                 <table class="table table-striped table_tt">
                     <tr>
                         <td>Nhà cung cấp</td>

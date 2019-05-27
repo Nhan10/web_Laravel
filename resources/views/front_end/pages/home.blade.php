@@ -3,6 +3,9 @@
     @include('front_end.layouts.sidebar')
 
     <style>
+        .card-home{
+            margin-bottom: 1em;
+        }
         .profile h1{
             font-weight: normal;
             font-size: 20px;
@@ -27,6 +30,9 @@
             left: 0;
             top: 0;
             bottom: 0;
+        }
+        .img-box .img-top1{
+            max-height: 250px;
         }
         .img-box ul{
             position: absolute;
@@ -86,58 +92,116 @@
             color:#1a87f4;
         }
     </style>
-<div class="row card shadow">
-    <nav aria-label="breadcrumb">
-        <ol class="breadcrumb"  style="background: #1a87f4">
-            <li class="breadcrumb-item"><a href="#"  style="color: #fff">Sách tiếng việt</a></li>
-            <li class="breadcrumb-item"><a href="#"  style="color: #fff">Văn học</a></li>
-            <li class="breadcrumb-item active" aria-current="page"  style="color: #fff">Data</li>
-        </ol>
-    </nav>
+    @if(isset($sanphamnb))
+        <div class="row card shadow card-home">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb"  style="background: #1a87f4">
+                <li class="breadcrumb-item"><a href="{{route('home.index')}}"  style="color: #fff">Trang chủ</a></li>
+                <li class="breadcrumb-item active" style="color: #000">Mới nhất</li>
+            </ol>
+        </nav>
 
-    <div class="container-fluid">
-        <div class="row pt-md">
-            {{--@foreach($sanphams as $sanpham)--}}
-                {{--<div class=" col-md-2 cart-list" style="width: 14rem;">--}}
-                    {{--<a href="{{route('home.detail',$sanpham->MaSP)}}">--}}
-                        {{--<img src="{{asset('storage/'.$sanpham->hinhAnhs[0]->DuongDan)}}" height="210" class="card-img-top" alt="{{$sanpham->TenSP}}">--}}
-                        {{--<div class="card-body">--}}
-                        {{--<h5 class="card-title">{{$sanpham->TenSP}}</h5>--}}
-                        {{--<p class="card-text">{{number_format($sanpham->Gia)}}</p>--}}
-                        {{--<a href="#" class="btn btn-primary">Go somewhere</a>--}}
-                        {{--</div>--}}
-                    {{--</a>--}}
-                {{--</div>--}}
-            {{--@endforeach--}}
-                @foreach($sanphams as $sanpham)
-                <div class="col-md-2 profile">
-                    <div class="img-box">
-                        <img src="{{asset('storage/'.$sanpham->hinhAnhs[0]->DuongDan)}}" height="240" class="card-img-top">
-                        <ul class="text-center">
-                            <form action="{{route('cart.add')}}" method="post" id="cart-form-{{$sanpham->MaSP}}" style="display: none">
-                                @csrf
+        <div class="container-fluid">
+            <div class="row pt-md">
+                {{--@foreach($sanphams as $sanpham)--}}
+                    {{--<div class=" col-md-2 cart-list" style="width: 14rem;">--}}
+                        {{--<a href="{{route('home.detail',$sanpham->MaSP)}}">--}}
+                            {{--<img src="{{asset('storage/'.$sanpham->hinhAnhs[0]->DuongDan)}}" height="210" class="card-img-top" alt="{{$sanpham->TenSP}}">--}}
+                            {{--<div class="card-body">--}}
+                            {{--<h5 class="card-title">{{$sanpham->TenSP}}</h5>--}}
+                            {{--<p class="card-text">{{number_format($sanpham->Gia)}}</p>--}}
+                            {{--<a href="#" class="btn btn-primary">Go somewhere</a>--}}
+                            {{--</div>--}}
+                        {{--</a>--}}
+                    {{--</div>--}}
+                {{--@endforeach--}}
+                    @foreach($sanphamnb as $sanpham)
+                    <div class="col-md-2 profile">
+                        <div class="img-box">
+                            <img src="{{asset('storage/'.$sanpham->hinhAnhs[0]->DuongDan)}}" class="card-img-top img-top1">
+                            <ul class="text-center">
+                                <form action="{{route('cart.add')}}" method="post" id="cart-form-{{$sanpham->MaSP}}" style="display: none">
+                                    @csrf
 
-                                <input type="hidden" name="quantity"  value="1" >
-                                <input type="hidden" name="id" value="{{$sanpham->MaSP}}">
-                                <input type="hidden" name="name" value="{{$sanpham->TenSP}}">
-                                <input type="hidden" name="price" value="{{$sanpham->Gia}}">
-                                <input type="hidden" name="image" value="{{$sanpham->hinhAnhs[0]->DuongDan}}">
-                                <input type="hidden" name="tacgia" value="{{$sanpham->tacGia->TenTG}}">
-                            </form>
-                            <a href="{{route('cart.add')}}" onclick="event.preventDefault();
-                                                     document.getElementById('cart-form-{{$sanpham->MaSP}}').submit();"
-                            ><li><i class="fa fa-shopping-cart"></i></li></a>
-                            <a href="#"><li><i class="fa fa-star"></i></li></a>
-                            <a href="{{route('home.detail',$sanpham->MaSP)}}"><li><i class="fas fa-info-circle"></i></li></a>
-                        </ul>
+                                    <input type="hidden" name="quantity"  value="1" >
+                                    <input type="hidden" name="id" value="{{$sanpham->MaSP}}">
+                                    <input type="hidden" name="name" value="{{$sanpham->TenSP}}">
+                                    <input type="hidden" name="price" value="{{$sanpham->Gia}}">
+                                    <input type="hidden" name="image" value="{{$sanpham->hinhAnhs[0]->DuongDan}}">
+                                    <input type="hidden" name="tacgia" value="{{$sanpham->tacGia->TenTG}}">
+                                </form>
+                                <a href="{{route('cart.add')}}" onclick="event.preventDefault();
+                                                         document.getElementById('cart-form-{{$sanpham->MaSP}}').submit();"
+                                ><li><i class="fa fa-shopping-cart"></i></li></a>
+                                <a href="#"><li><i class="fa fa-star"></i></li></a>
+                                <a href="{{route('home.detail',$sanpham->MaSP)}}"><li><i class="fas fa-info-circle"></i></li></a>
+                            </ul>
+                        </div>
+                        <h1>{{$sanpham->TenSP}}</h1>
+                        <h2>{{number_format($sanpham->Gia)}}</h2>
+                        {{--<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>--}}
                     </div>
-                    <h1>{{$sanpham->TenSP}}</h1>
-                    <h2>{{number_format($sanpham->Gia)}}</h2>
-                    {{--<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>--}}
-                </div>
-                @endforeach
+                    @endforeach
+            </div>
         </div>
     </div>
-</div>
+    @endif
+
+
+    @if(isset($sanphamOfnhom))
+        @foreach($sanphamOfnhom as $sanphams)
+        <div class="row card shadow card-home">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb"  style="background: #1a87f4">
+                    <li class="breadcrumb-item active" style="color: #fff;font-weight: bold;">{{$sanphams[0]->loaiSP->nhomSP->TenNSP}}</li>
+                </ol>
+            </nav>
+
+            <div class="container-fluid">
+                <div class="row pt-md">
+                    {{--@foreach($sanphams as $sanpham)--}}
+                    {{--<div class=" col-md-2 cart-list" style="width: 14rem;">--}}
+                    {{--<a href="{{route('home.detail',$sanpham->MaSP)}}">--}}
+                    {{--<img src="{{asset('storage/'.$sanpham->hinhAnhs[0]->DuongDan)}}" height="210" class="card-img-top" alt="{{$sanpham->TenSP}}">--}}
+                    {{--<div class="card-body">--}}
+                    {{--<h5 class="card-title">{{$sanpham->TenSP}}</h5>--}}
+                    {{--<p class="card-text">{{number_format($sanpham->Gia)}}</p>--}}
+                    {{--<a href="#" class="btn btn-primary">Go somewhere</a>--}}
+                    {{--</div>--}}
+                    {{--</a>--}}
+                    {{--</div>--}}
+                    {{--@endforeach--}}
+                    @foreach($sanphams as $sanpham)
+                        <div class="col-md-2 profile">
+                            <div class="img-box">
+                                <img src="{{asset('storage/'.$sanpham->hinhAnhs[0]->DuongDan)}}" class="card-img-top img-top1">
+                                <ul class="text-center">
+                                    <form action="{{route('cart.add')}}" method="post" id="cart-form-{{$sanpham->MaSP}}" style="display: none">
+                                        @csrf
+
+                                        <input type="hidden" name="quantity"  value="1" >
+                                        <input type="hidden" name="id" value="{{$sanpham->MaSP}}">
+                                        <input type="hidden" name="name" value="{{$sanpham->TenSP}}">
+                                        <input type="hidden" name="price" value="{{$sanpham->Gia}}">
+                                        <input type="hidden" name="image" value="{{$sanpham->hinhAnhs[0]->DuongDan}}">
+                                        <input type="hidden" name="tacgia" value="{{$sanpham->tacGia->TenTG}}">
+                                    </form>
+                                    <a href="{{route('cart.add')}}" onclick="event.preventDefault();
+                                            document.getElementById('cart-form-{{$sanpham->MaSP}}').submit();"
+                                    ><li><i class="fa fa-shopping-cart"></i></li></a>
+                                    <a href="#"><li><i class="fa fa-star"></i></li></a>
+                                    <a href="{{route('home.detail',$sanpham->MaSP)}}"><li><i class="fas fa-info-circle"></i></li></a>
+                                </ul>
+                            </div>
+                            <h1>{{$sanpham->TenSP}}</h1>
+                            <h2>{{number_format($sanpham->Gia)}}</h2>
+                            {{--<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>--}}
+                        </div>
+                    @endforeach
+                </div>
+            </div>
+        </div>
+        @endforeach
+    @endif
 
 @endsection

@@ -69,6 +69,36 @@
                         </span>
                     @endif
                 </div>
+                <fieldset class="form-group mt-4">
+                    <div class="row">
+                        <legend class="col-form-label col-sm-3 pt-0">Giới tính: </legend>
+                        <div class="col-sm-9">
+                            <div class="row">
+                                <div class="form-check col-md-2">
+                                    <input class="form-check-input" type="radio" name="gioiTinh" id="gridRadios1" value="1" checked>
+                                    <label class="form-check-label" for="gridRadios1">
+                                        Nam
+                                    </label>
+                                </div>
+                                <div class="form-check col-md-2">
+                                    <input class="form-check-input" type="radio" name="gioiTinh" id="gridRadios2" value="0">
+                                    <label class="form-check-label" for="gridRadios2">
+                                        Nữ
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </fieldset>
+                <div class="form-group">
+                    <label for="text" class="text-dark">Ngày sinh:</label>
+                    <input required type="date" class="form-control {{ $errors->has('ngaySinh') ? ' is-invalid' : '' }}" id="text" name="ngaySinh">
+                    @if ($errors->has('ngaySinh'))
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $errors->first('ngaySinh') }}</strong>
+                        </span>
+                    @endif
+                </div>
                 <div class="form-row">
                     <div class="col">
                         <label for="text" class="text-dark">Số điện thoại:</label>

@@ -119,7 +119,11 @@
                         <input type="hidden" name="price" value="{{$sanpham->Gia}}">
                         <input type="hidden" name="image" value="{{$sanpham->hinhAnhs[0]->DuongDan}}">
                         <input type="hidden" name="tacgia" value="{{$sanpham->tacGia->TenTG}}">
-                        <button type="submit" class="btn btn-muahang"><i class="fa fa-shopping-cart"></i> Chọn mua</button>
+                        @if(($sanpham->SoLuong)>0)
+                            <button type="submit" class="btn btn-muahang"><i class="fa fa-shopping-cart"></i> Chọn mua</button>
+                        @else
+                            <button type="submit" class="btn btn-danger" disabled>Hết hàng</button>
+                        @endif
                     </form>
                 </div>
 
@@ -149,7 +153,7 @@
                             width: 100%;
                         }
                         .banner img{
-                            margin: 0;
+                            margin: 0.4em 0;
                             padding: 0;
                             width: 100%;
                         }

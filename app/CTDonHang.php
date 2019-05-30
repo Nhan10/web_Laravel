@@ -14,7 +14,7 @@ class CTDonHang extends Model
 
     public function sanPham()
     {
-        return $this->belongsTo('App\SanPham','MaSP','MaCTDH');
+        return $this->belongsTo('App\SanPham','MaSP');
     }
 
     public function donHang()

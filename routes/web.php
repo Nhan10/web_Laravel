@@ -29,6 +29,12 @@ Route::get('/loaisanpham/{key}/{key2}','front_end\SearchController@getSanphamThe
 Route::get('/timkiemtheoloai','front_end\SearchController@searchSanphamByloai')->name('home.searchbyloai');
 Route::get('/timkiemtheonhom','front_end\SearchController@searchSanphamByNhom')->name('home.searchbynhom');
 
+Route::get('/customer/account/edit','front_end\NguoiDungController@capNhapThongTinCaNhan')->name('nguoidung.cntt');
+Route::post('/customer/account/edit/{MaND}','front_end\NguoiDungController@update')->name('nguoidung.cnttupdate');
+Route::get('/customer/manager-order/history','front_end\NguoiDungController@getDonHang')->name('nguoidung.qldh');
+Route::get('/customer/manager-order/history/view/{code}','front_end\NguoiDungController@getCTDonHang')->name('nguoidung.qldhct');
+Route::get('/customer/account/change-password','front_end\NguoiDungController@getDoiMatKhau')->name('nguoidung.dmk');
+
 //cart_route
 Route::post('/addCart', 'front_end\CartController@store')->name('cart.add');
 Route::get('/showCart', 'front_end\CartController@index')->name('cart.index');

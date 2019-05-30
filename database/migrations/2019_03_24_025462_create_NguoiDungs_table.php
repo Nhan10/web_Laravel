@@ -22,6 +22,8 @@ class CreateNguoiDungsTable extends Migration
             $table->rememberToken();
             $table->string('DiaChi');
             $table->string('SDT',15);
+            $table->boolean('GioiTinh')->nullable();
+            $table->date('NgaySinh')->nullable();
             $table->boolean('active')->default(false);
             $table->unsignedBigInteger('MaLND');
             $table->foreign('MaLND')

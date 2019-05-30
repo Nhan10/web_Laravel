@@ -37,8 +37,8 @@
                         <input required type="text" class="form-control {{ $errors->has('tenND') ? ' is-invalid' : '' }}" id="text" value="{{$nguoidung->TenND}}" name="tenND">
                         @if ($errors->has('tenND'))
                             <span class="invalid-feedback" role="alert">
-                            <strong>{{ $errors->first('tenND') }}</strong>
-                        </span>
+                                <strong>{{ $errors->first('tenND') }}</strong>
+                            </span>
                         @endif
                     </div>
                     <div class="col-md-7">
@@ -57,11 +57,41 @@
                     @endif
                 </div>
                 <div class="form-group">
-                    <label for="text" class="text-dark">Địa chỉ:</label>
+                    <label for="text" class="text-dark">Địa chỉ: </label>
                     <input required type="text" class="form-control {{ $errors->has('diaChi') ? ' is-invalid' : '' }}" id="text" value="{{$nguoidung->DiaChi}}" name="diaChi">
                     @if ($errors->has('diaChi'))
                         <span class="invalid-feedback" role="alert">
                             <strong>{{ $errors->first('diaChi') }}</strong>
+                        </span>
+                    @endif
+                </div>
+                <fieldset class="form-group mt-4">
+                    <div class="row">
+                        <legend class="col-form-label col-sm-3 pt-0">Giới tính: </legend>
+                        <div class="col-sm-9">
+                            <div class="row">
+                                <div class="form-check col-md-2">
+                                    <input class="form-check-input" type="radio" name="gioiTinh" id="gridRadios1" value="1" {{$nguoidung->GioiTinh ==true ? 'checked' : ' '}}>
+                                    <label class="form-check-label" for="gridRadios1">
+                                        Nam
+                                    </label>
+                                </div>
+                                <div class="form-check col-md-2">
+                                    <input class="form-check-input" type="radio" name="gioiTinh" id="gridRadios2" value="0" {{$nguoidung->GioiTinh ==false ? 'checked' : ' '}}>
+                                    <label class="form-check-label" for="gridRadios2">
+                                        Nữ
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </fieldset>
+                <div class="form-group">
+                    <label for="text" class="text-dark">Ngày sinh:</label>
+                    <input required type="date" class="form-control {{ $errors->has('ngaySinh') ? ' is-invalid' : '' }}" id="text" value="{{$nguoidung->NgaySinh}}" name="ngaySinh">
+                    @if ($errors->has('ngaySinh'))
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $errors->first('ngaySinh') }}</strong>
                         </span>
                     @endif
                 </div>

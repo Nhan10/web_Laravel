@@ -76,6 +76,8 @@ class NguoiDungController extends Controller
         $nguoidung->password = Hash::make($request->password);
         $nguoidung->DiaChi = $request->diaChi;
         $nguoidung->SDT = $request->sDT;
+        $nguoidung->GioiTinh = $request->gioiTinh;
+        $nguoidung->NgaySinh = $request->ngaySinh;
         $nguoidung->active = 0;
         $nguoidung->MaLND = $request->MaLND;
         $nguoidung->save();
@@ -152,6 +154,8 @@ class NguoiDungController extends Controller
 //        $nguoidung->email = $request->email;
         $nguoidung->password = Hash::make($request->password);
         $nguoidung->DiaChi = $request->diaChi;
+        $nguoidung->GioiTinh = $request->gioiTinh;
+        $nguoidung->NgaySinh = $request->ngaySinh;
         $nguoidung->SDT = $request->sDT;
         $nguoidung->save();
         return redirect()->route('nguoidung.index')->with('success','Sửa người dùng thành công!');

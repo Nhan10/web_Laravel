@@ -7,6 +7,9 @@ use App\DonHang;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\NguoiDung;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Validator;
 
 class NguoiDungController extends Controller
 {
@@ -92,6 +95,41 @@ class NguoiDungController extends Controller
         {
             $nguoidung = auth()->user();
             return view('front_end.pages.doimatkhau',compact(['nguoidung']));
+        }
+        return redirect()->route('login');
+    }
+
+    public function doiMatKhau(Request $request,$MaND)
+    {
+        if (isset(auth()->user()->MaND))
+        {
+            Validator::extend('passwordcheck', function ($attribute, $value, $parameters, $validator) {
+
+                return Hash::check($value, current($parameters));
+
+            });
+            $rules = [
+                'password' => 'required|min:8|passwordcheck:' . Auth::user()->password.'',
+                'newpassword' => 'required|min:8|confirmed|different:password'
+            ];
+            $customMessages = [
+                'required' => ':attribute không được để trống!',
+                'min' => ':attribute phải dài hơn :min ký tự',
+                'confirmed' => 'Mật khẩu nhập lại không giống :attribute',
+                'passwordcheck' => ':attribute không đúng',
+                'different' => ':attribute không được trùng với mật khẩu cũ'
+            ];
+            $customValidationAttributes = [
+                'password' => 'Mật khẩu',
+                'newpassword' => 'Mật khẩu mới'
+            ];
+            $this->validate($request, $rules, $customMessages,$customValidationAttributes);
+
+            $nguoidung = NguoiDung::find($MaND);
+            $nguoidung->password = Hash::make($request->newpassword);
+            $nguoidung->save();
+            Auth::logout();
+            return redirect()->route('login')->with('success','Đổi mật khẩu thành công! Vui lòng đăng nhập lại!');
         }
         return redirect()->route('login');
     }

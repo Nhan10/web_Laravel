@@ -40,4 +40,20 @@ class HomeController extends Controller
 //        $nhomsps = NhomSP::take(5)->get();
         return view('front_end.pages.category');
     }
+
+    public function search(Request $request)
+    {
+        $key = $request->get('key');
+        if($key != ''){
+            $results = SanPham::where('MaSP', 'like', '%'.$key.'%')
+                ->orWhere('TenSP', 'like', '%'.$key.'%')
+                ->orWhere('Gia', 'like', '%'.$key.'%')
+                ->orWhere('NgonNgu', 'like', '%'.$key.'%')
+                ->orderBy('MaSP', 'desc')->paginate(10);
+        }
+        else{
+            $results = SanPham::orderBy('MaSP', 'desc')->paginate(10);
+        }
+        return view('front_end.pages.search',compact(['results','key']));
+    }
 }

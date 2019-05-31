@@ -13,7 +13,7 @@
                 <a href="{{route('nguoidung.qldh')}}"> <i class="fas fa-shopping-cart"></i> <span>Quản lý đơn hàng</span></a>
             </li>
             <li class="">
-                <a href="{{route('nguoidung.dmk')}}"> <i class="fas fa-shopping-cart"></i> <span>Đổi mật khẩu</span></a>
+                <a href="{{route('nguoidung.dmk')}}"> <i class="fas fa-key"></i> <span>Đổi mật khẩu</span></a>
             </li>
 
 

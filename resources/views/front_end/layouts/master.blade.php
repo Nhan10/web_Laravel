@@ -211,8 +211,9 @@
                         </ul>
                     </ul>
 
-                    <form class="form-inline my-2 my-lg-0">
-                        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                    <form action="{{route('home.search')}}" method="get" class="form-inline my-2 my-lg-0">
+                        @csrf
+                        <input class="form-control mr-sm-2" type="search" name="key" placeholder="Search" aria-label="Search">
                         <button class="btn  my-2 my-sm-0" type="submit" style="border: 1px solid #ffffff;">
                             <i class="fa fa-search" style="color: #ffffff"></i>
                         </button>
@@ -233,12 +234,31 @@
                         @else
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre  style="color:#fff;">
+                                    <style>
+                                        .image{
+                                            overflow: hidden;
+                                            float: left;
+                                            margin-right: 10px;
+                                            margin-bottom: 0;
+                                            margin-top: 0;
+                                        }
+                                        .image img{
+                                            border-radius: 50%;
+                                        }
+                                    </style>
+                                    <p class="image"><img src="https://salt.tikicdn.com/desktop/img/avatar.png?v=3" height="25" width="25" alt=""></p>
                                     {{ Auth::user()->TenND }} <span class="caret"></span>
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                                     <a class="dropdown-item" href="{{ route('nguoidung.cntt') }}">
                                         Cập nhật thông tin
+                                    </a>
+                                    <a class="dropdown-item" href="{{ route('nguoidung.qldh') }}">
+                                        Quản lý đơn hàng
+                                    </a>
+                                    <a class="dropdown-item" href="{{ route('nguoidung.dmk') }}">
+                                        Đổi mật khẩu
                                     </a>
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();

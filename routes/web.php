@@ -20,6 +20,7 @@ Route::get('/', function () {
 Route::get('/404', 'front_end\HomeController@error404')->name('home.404');
 Route::get('/trangchu','front_end\HomeController@Home')->name('home.index');
 Route::get('/sanpham/{MaSP}','front_end\HomeController@detailSanPham')->name('home.detail');
+Route::get('/trangchu/timkiem}','front_end\HomeController@search')->name('home.search');
 
 Route::get('/theloai','front_end\HomeController@getCategory')->name('home.category');
 Route::get('/danhmucsanpham/{key}','front_end\SearchController@getSanphamByDanhmuc')->name('home.categoryDanhmuc');
@@ -34,6 +35,7 @@ Route::post('/customer/account/edit/{MaND}','front_end\NguoiDungController@updat
 Route::get('/customer/manager-order/history','front_end\NguoiDungController@getDonHang')->name('nguoidung.qldh');
 Route::get('/customer/manager-order/history/view/{code}','front_end\NguoiDungController@getCTDonHang')->name('nguoidung.qldhct');
 Route::get('/customer/account/change-password','front_end\NguoiDungController@getDoiMatKhau')->name('nguoidung.dmk');
+Route::PUT('/customer/account/change-password/{MaND}','front_end\NguoiDungController@doiMatKhau')->name('nguoidung.dmksave');
 
 //cart_route
 Route::post('/addCart', 'front_end\CartController@store')->name('cart.add');
@@ -144,6 +146,13 @@ Route::prefix('admin')->middleware('admin')->group(function (){
         Route::get('/edit/{MaDHH}','DonHangController@edit')->name('donhang.edit');
         Route::PUT('/edit/{MaDHH}','DonHangController@update')->name('donhang.update');
         Route::DELETE('/destroy/{MaDHH}','DonHangController@destroy')->name('donhang.destroy');
+    });
+
+    Route::prefix('canhan')->group(function (){
+        Route::get('/thongtincanhan','NguoiDungController@getthongtincanhan')->name('nguoidung.adminpagettcn');
+        Route::PUT('/thongtincanhan/{code}','NguoiDungController@thongtincanhanUpdate')->name('nguoidung.adminpagettcnupdate');
+        Route::get('/doimatkhau','NguoiDungController@getdoimatkhau')->name('nguoidung.adminpagedmk');
+        Route::PUT('/doimatkhau/{code}','NguoiDungController@getdoimatkhauUpdate')->name('nguoidung.adminpagedmkupdate');
     });
 });
 

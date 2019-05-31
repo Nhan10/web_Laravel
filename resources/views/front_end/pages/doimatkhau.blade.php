@@ -90,7 +90,7 @@
         @include('front_end.pages.partials.menukhachhang')
         <div class="col-md-9">
             <div class="content-right row  ml-0 p-0">
-                <h1 class="have-margin container mb-0 mt-3">Thông tin tài khoản</h1>
+                <h1 class="have-margin container mb-0 mt-3">Đổi mật khẩu</h1>
                 <div class="container">
                     <div class="row">
                         <div class="card rounded col-md-10 m-3 p-4 ">
@@ -102,28 +102,35 @@
                                     </button>
                                 </div>
                             @endif
-                            <form action="{{route('nguoidung.cnttupdate',$nguoidung->MaND)}}" method="post">
+                            <form action="{{route('nguoidung.dmksave',$nguoidung->MaND)}}" method="post">
                                 @csrf
+                                @method('PUT')
                                 <div class="form-group row">
-                                    <label for="inputHoTen3" class="col-sm-3 col-form-label">Họ tên</label>
+                                    <label for="inputpassword" class="col-sm-3 col-form-label">Mật khẩu cũ</label>
                                     <div class="col-sm-9">
-                                        <input type="text" class="form-control {{ $errors->has('tenND') ? ' is-invalid' : '' }}" id="inputHoTen3" name="tenND" value="{{$nguoidung->TenND}}">
-                                        @if ($errors->has('tenND'))
+                                        <input type="password" class="form-control {{ $errors->has('password') ? ' is-invalid' : '' }}" id="inputpassword" name="password" required>
+                                        @if ($errors->has('password'))
                                             <span class="invalid-feedback" role="alert">
-                                                <strong>{{ $errors->first('tenND') }}</strong>
+                                                <strong>{{ $errors->first('password') }}</strong>
                                             </span>
                                         @endif
                                     </div>
                                 </div>
                                 <div class="form-group row">
-                                    <label for="inputsdt3" class="col-sm-3 col-form-label">Số điện thoại</label>
+                                    <label for="inputnewpassword" class="col-sm-3 col-form-label">Mật khẩu mới</label>
                                     <div class="col-sm-9">
-                                        <input type="text" class="form-control {{ $errors->has('sDT') ? ' is-invalid' : '' }}" id="inputsdt3" name="sDT" value="{{$nguoidung->SDT}}">
-                                        @if ($errors->has('sDT'))
+                                        <input type="password" class="form-control {{ $errors->has('newpassword') ? ' is-invalid' : '' }}" id="inputnewpassword" name="newpassword" required>
+                                        @if ($errors->has('newpassword'))
                                             <span class="invalid-feedback" role="alert">
-                                                <strong>{{ $errors->first('sDT') }}</strong>
+                                                <strong>{{ $errors->first('newpassword') }}</strong>
                                             </span>
                                         @endif
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label for="inputnewpassword_confirmation" class="col-sm-3 col-form-label">Nhập lại</label>
+                                    <div class="col-sm-9">
+                                        <input type="password" class="form-control" id="inputnewpassword_confirmation" name="newpassword_confirmation" required>
                                     </div>
                                 </div>
 

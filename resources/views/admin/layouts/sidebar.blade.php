@@ -62,14 +62,14 @@
     <li class="nav-item">
         <a class="nav-link" href="{{route('nhaphang.index')}}">
             <i class="fas fa-fw fa-chart-area"></i>
-            <span>Nhập hàng(!!!!)</span></a>
+            <span>Nhập hàng(!)</span></a>
     </li>
 
     <!-- Nav Item - Product -->
     <li class="nav-item">
         <a class="nav-link" href="{{route('donhang.index')}}">
             <i class="fas fa-fw fa-chart-area"></i>
-            <span>Quản lý đơn hàng(!!!!)</span></a>
+            <span>Quản lý đơn hàng(!)</span></a>
     </li>
 
     <!-- Nav Item - Utilities Collapse Menu -->

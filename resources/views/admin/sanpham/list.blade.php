@@ -48,7 +48,13 @@
                     @foreach($sanphams as $sanpham)
                         <tr>
                             <th>{{$sanpham->MaSP}}</th>
-                            <th><img src="{{asset('storage/'.$sanpham->hinhAnhs[0]->DuongDan)}}" width="80px"></th>
+                            <th>
+                                @if(isset($sanpham->hinhAnhs[0]->DuongDan))
+                                <img src="{{asset('storage/'.$sanpham->hinhAnhs[0]->DuongDan)}}" width="80px">
+                                @else
+                                Không có hình ảnh
+                                @endif
+                            </th>
                             <th>{{$sanpham->TenSP}}</th>
                             <th>{{$sanpham->Gia}}</th>
                             <th>{{$sanpham->SoLuong}}</th>

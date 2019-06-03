@@ -87,7 +87,7 @@ class NguoiDung extends Authenticatable
         return $this->hasMany('App\DonHang','MaQTV');
     }
 
-    public function is_admin()
+    public function is_quyen()
     {
         return $this->getAttribute('MaLND');
     }

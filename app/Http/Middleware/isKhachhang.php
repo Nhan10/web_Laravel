@@ -3,9 +3,8 @@
 namespace App\Http\Middleware;
 
 use Closure;
-use Illuminate\Support\Facades\Auth;
 
-class isQuanly
+class isKhachhang
 {
     /**
      * Handle an incoming request.
@@ -17,7 +16,7 @@ class isQuanly
     public function handle($request, Closure $next)
     {
         if (Auth::check()) {
-            if(Auth::user()->is_quyen()==3){
+            if(Auth::user()->is_quyen()==1){
                 return $next($request);
             } else {
                 return  ($request->ajax()) ?  response('Forbidden', 403) : redirect()->route('home.404');

@@ -22,6 +22,7 @@
                 <th>{{$dh->SDT}}</th>
                 <th>{{$dh->NgayDat}}</th>
                 <th>{{$dh->NgayGiao}}</th>
+                {{--<th>{{$dh->nguoiDungnvgh->TenND}}</th>--}}
                 <th>{{$dh->trangthai->TenTT}}</th>
                 <th><a href="">Chi tiết</a></th>
             </tr>

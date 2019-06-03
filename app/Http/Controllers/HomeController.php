@@ -25,4 +25,9 @@ class HomeController extends Controller
     {
         return view('home');
     }
+
+    public function error404()
+    {
+        return view('admin.layouts.404');
+    }
 }

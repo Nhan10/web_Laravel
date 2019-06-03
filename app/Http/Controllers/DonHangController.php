@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\CTDonHang;
 use App\DonHang;
 use App\NguoiDung;
 use Illuminate\Http\Request;
@@ -16,14 +17,34 @@ class DonHangController extends Controller
      */
     public function index()
     {
-        $donhangs = DonHang::all();
-        return view('admin.donhang.list',compact('donhangs'));
+        $MaLND = \auth()->user()->MaLND;
+        if ($MaLND == 2 || $MaLND == 3)
+        {
+            $donhangs = DonHang::orderby('MaDH','desc')->get();
+            return view('admin.donhang.cardQLandAD',compact(['donhangs','title']));
+        }
+        if ($MaLND == 4)
+        {
+            $title = 'Danh sách đơn hàng cần xuất kho!';
+            $donhangs = DonHang::where('MaTT',2)->orderby('MaDH','desc')->get();
+            return view('admin.donhang.cardxuathang',compact(['donhangs','title']));
+        }
+        if ($MaLND == 5)
+        {
+            $donhangs = DonHang::where('MaTT', 3)
+                ->Where('MaNVGH', \auth()->user()->MaND)
+                ->orderby('MaDH', 'desc')
+                ->get();
+            $title = 'Danh sách đơn hàng cần giao <br> của nhân viên "'.\auth()->user()->TenND.'"! <br>'.'( Có '.$donhangs->count().' đơn hàng cần giao)';
+            return view('admin.donhang.cardgiaohang',compact(['donhangs','title']));
+        }
     }
 
     public function locTheoDieuKien(Request $request)
     {
         $key = $request->key;
-        if ($key ==1)
+        $users = \auth()->user();
+        if ($key ==1 && ($users->MaLND == 2 || $users->MaLND == 3))
         {
             $donhangs = DonHang::orderby('MaDH','desc')->get();
 
@@ -31,9 +52,9 @@ class DonHangController extends Controller
                 return view('admin.donhang.partials.card',compact('donhangs'))->render();
             }
 
-            return view('admin.donhang.list',compact('donhangs'));
+            return view('admin.donhang.partials.card',compact('donhangs'))->render();
         }
-        if ($key ==2)
+        if ($key ==2 && ($users->MaLND == 2 || $users->MaLND == 3))
         {
             $donhangs = DonHang::where('MaTT',1)->orderby('MaDH','desc')->get();
             $nhanviengiaohangs = NguoiDung::where('MaLND',5)->get();
@@ -79,6 +100,7 @@ class DonHangController extends Controller
 
             return view('admin.donhang.list',compact('donhangs'));
         }
+        return view('admin.donhang.partials.forbidden')->render();
     }
 
     public function xulydonhang(Request $request, $MaDH)
@@ -101,95 +123,39 @@ class DonHangController extends Controller
         return redirect()->back();
     }
 
-    public function xuathang(Request $request, $MaDH)
+    public function xuathang($MaDH)
     {
         $donhang = DonHang::find($MaDH);
-        $MaNVK = $request->MaNVK;
-        $nvkho = NguoiDung::find($MaNVK)->MaLND;
-        if ($donhang && $nvkho == 4){
-            $donhang->update(['MaTT'=>3,'MaNVK'=>$MaNVK]);
+        $NVK = \auth()->user();
+        $MaLND = $NVK->MaLND;
+        if ($donhang && $MaLND == 4){
+            $donhang->update(['MaTT'=>3,'MaNVK'=>$NVK->MaND]);
         }else{
-            return '404';
+            redirect()->route('admin.404');
         }
         return redirect()->back();
 
     }
 
-    public function giaohang(Request $request, $MaDH)
+    public function giaohang($MaDH)
     {
         $donhang = DonHang::find($MaDH);
-        $MaNVGH = $request->MaNVGH;
-        $nvgiaohang = NguoiDung::find($MaNVGH)->MaLND;
-        if ($donhang && $nvgiaohang == 5){
-            $donhang->update(['MaTT'=>4,'NgayGiao'=>date('y-m-d')]);
+        $MaNVGH = \auth()->user()->MaND;
+        $MaLND = NguoiDung::find($MaNVGH)->MaLND;
+//        dd($MaLND);
+        if ($donhang && $MaLND == 5){
+            $donhang->update(['MaTT'=>4,'NgayGiao'=>date('y-m-d H:i:s')]);
         }else{
-            return '404';
+            return redirect()->route('admin.404');
         }
         return redirect()->back();
     }
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
+    public function chiTietDonHang($code)
     {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\DonHang  $donHangs
-     * @return \Illuminate\Http\Response
-     */
-    public function show(DonHang $donHangs)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\DonHang  $donHangs
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(DonHang $donHangs)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\DonHang  $donHangs
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, DonHang $donHangs)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\DonHang  $donHangs
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(DonHang $donHangs)
-    {
-        //
+        $donhanged = DonHang::find($code);
+        $ctdonhangs = CTDonHang::where('MaDH','=',$donhanged->MaDH)->orderby('MaCTDH','desc')->get();
+        $title = 'Chi tiết đơn hàng #'.$donhanged->MaDH;
+        return view('admin.donhang.chitietcard',compact(['ctdonhangs','title','donhanged']));
     }
 }

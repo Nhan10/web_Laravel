@@ -60,8 +60,15 @@ class Kernel extends HttpKernel
         'signed' => \Illuminate\Routing\Middleware\ValidateSignature::class,
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
         'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
+
         'admin' => \App\Http\Middleware\isAdmin::class,
+        'admin-quanly' => \App\Http\Middleware\isAdmin_Quanly::class,
+        'adminpage' => \App\Http\Middleware\isAdminPage::class,
+        'khachhang' => \App\Http\Middleware\isKhachhang::class,
+        'kho' => \App\Http\Middleware\isKho::class,
         'quanly' => \App\Http\Middleware\isQuanly::class,
+        'giaohang' => \App\Http\Middleware\isShipper::class,
+        'admin-quanly-kho' => \App\Http\Middleware\isAdmin_Quanly_kho::class,
     ];
 
     /**

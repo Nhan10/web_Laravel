@@ -156,6 +156,7 @@ Route::prefix('admin')->middleware('adminpage')->group(function (){
 
         Route::post('/timkiem','DonHangController@locTheoDieuKien')->name('donhang.loc');
         Route::PUT('/xulydonhang/{MaDH}','DonHangController@xulydonhang')->middleware('admin-quanly')->name('donhang.xuly');
+        Route::PUT('/xulydonhang/{MaDH}/edit','DonHangController@updatexulydonhang')->middleware('admin-quanly')->name('donhang.updatexuly');
 
     });
 

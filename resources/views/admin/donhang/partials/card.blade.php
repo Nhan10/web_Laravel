@@ -8,6 +8,8 @@
             <th>Số điện thoại</th>
             <th>Ngày đặt</th>
             <th>Ngày giao</th>
+            <th>Tổng tiền</th>
+            <th>NV giao hàng</th>
             <th>Trạng thái</th>
             <th>Thao tác</th>
         </tr>
@@ -22,7 +24,12 @@
                 <th>{{$dh->SDT}}</th>
                 <th>{{$dh->NgayDat}}</th>
                 <th>{{$dh->NgayGiao}}</th>
-                {{--<th>{{$dh->nguoiDungnvgh->TenND}}</th>--}}
+                <th>{{number_format($dh->TongTien)}}đ</th>
+                @if($dh->nguoiDungNVGH)
+                    <th>{{$dh->nguoiDungNVGH->TenND}}</th>
+                @else
+                    <th>404</th>
+                @endif
                 <th>{{$dh->trangthai->TenTT}}</th>
                 <th><a href="">Chi tiết</a></th>
             </tr>

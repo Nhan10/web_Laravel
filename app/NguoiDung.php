@@ -92,6 +92,11 @@ class NguoiDung extends Authenticatable
         return $this->getAttribute('MaLND');
     }
 
+    public function is_admin()
+    {
+        return $this->getAttribute('MaLND') == 2;
+    }
+
     public function send_code_mail(NguoiDung $nguoiDung){
         $nguoiDung['link'] = str_random(30);
 
@@ -101,6 +106,15 @@ class NguoiDung extends Authenticatable
             $message->to($nguoiDung['email']);
             $message->subject('Bookstore - Xác thực người dùng');
         });
+    }
+
+    public function owns(DonHang $donHang)
+    {
+        return /*$this->MaND == $donHang->MaQTV ||*/ $this->MaND == $donHang->MaQL;
+    }
+    public function canEditGH(DonHang $donHang)
+    {
+        return $this->owns($donHang);
     }
 
 }

@@ -49,7 +49,7 @@
                     @if(isset($title))
                     <h5 class="mb-0 text-dark">{!! $title !!}</h5>
                     @else
-                    <h5 class="mb-0 text-dark">Bạn muốn làm gì hôm nay !</h5>
+                    <h5 class="mb-0 text-dark"> </h5>
                     @endif
                 </div>
             </div>

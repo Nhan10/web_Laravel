@@ -43,84 +43,99 @@ class DonHangController extends Controller
     public function locTheoDieuKien(Request $request)
     {
         $key = $request->key;
-        $users = \auth()->user();
-        if ($key ==1 && ($users->MaLND == 2 || $users->MaLND == 3))
+        //All
+        if ($key ==1)
         {
             $donhangs = DonHang::orderby('MaDH','desc')->get();
-
             if ($request->ajax()) {
                 return view('admin.donhang.partials.card',compact('donhangs'))->render();
             }
-
-            return view('admin.donhang.partials.card',compact('donhangs'))->render();
         }
-        if ($key ==2 && ($users->MaLND == 2 || $users->MaLND == 3))
+        //Chờ xử lý
+        if ($key ==2)
         {
             $donhangs = DonHang::where('MaTT',1)->orderby('MaDH','desc')->get();
             $nhanviengiaohangs = NguoiDung::where('MaLND',5)->get();
-
             if ($request->ajax()) {
-                return view('admin.donhang.partials.cardXuly',compact(['donhangs','nhanviengiaohangs']))->render();
+                return view('admin.donhang.partials.cardXulyajax',compact(['donhangs','nhanviengiaohangs']))->render();
             }
-
-            return view('admin.donhang.list',compact('donhangs'));
         }
+        //đã xủ lý
         if ($key ==3)
         {
             $donhangs = DonHang::where('MaTT',2)->orderby('MaDH','desc')->get();
-
+            $nhanviengiaohangs = NguoiDung::where('MaLND',5)->get();
             if ($request->ajax()) {
-                return view('admin.donhang.partials.cardDaxuly',compact('donhangs'))->render();
+                return view('admin.donhang.partials.cardDaxuly',compact(['donhangs','nhanviengiaohangs']))->render();
             }
-
-            return view('admin.donhang.list',compact('donhangs'));
         }
+        //đang giao
         if ($key ==4)
         {
-            $nvgiaohang = NguoiDung::find(\auth()->user()->MaND)->MaLND;
-            if ($nvgiaohang == 5) {
-                $donhangs = DonHang::where('MaTT', 3)->Where('MaNVGH', \auth()->user()->MaND)->orderby('MaDH', 'desc')->get();
-            }else{
-                $donhangs = DonHang::where('MaTT', 3)->orderby('MaDH', 'desc')->get();
-                return view('admin.donhang.partials.card',compact('donhangs'))->render();
-            }
+            $donhangs = DonHang::where('MaTT', 3)->orderby('MaDH', 'desc')->get();
             if ($request->ajax()) {
                 return view('admin.donhang.partials.cardDanggiao',compact('donhangs'))->render();
             }
-
-            return view('admin.donhang.list',compact('donhangs'));
         }
+        //đã giao
         if ($key ==5)
         {
             $donhangs = DonHang::where('MaTT',4)->orderby('MaDH','desc')->get();
-
             if ($request->ajax()) {
                 return view('admin.donhang.partials.card',compact('donhangs'))->render();
             }
-
-            return view('admin.donhang.list',compact('donhangs'));
         }
         return view('admin.donhang.partials.forbidden')->render();
     }
 
     public function xulydonhang(Request $request, $MaDH)
     {
-        $MaNVGH = $request->nhanviengh;
+        $MaNVGH = $request->MaNVGH;
 
         $donhang = DonHang::find($MaDH);
 
-        $MaNN = $request->MaNguoiNhap;
-        $nguoinhap = NguoiDung::find($MaNN);
-        $Quyen = $nguoinhap->loaind->MaLND;
+        $Quyen = \auth()->user()->MaLND;
         if ($donhang && $Quyen == 2)
         {
-            $donhang->update(['MaNVGH'=>$MaNVGH,'MaQTV'=>$MaNN,'MaQL'=>null,'MaTT'=>2]);
+            $donhang->update(['MaNVGH'=>$MaNVGH,'MaQTV'=> \auth()->user()->MaND,'MaQL'=>null,'MaTT'=>2]);
         }
         if ($donhang && $Quyen == 3)
         {
-            $donhang->update(['MaNVGH'=>$MaNVGH,'MaQL'=>$MaNN,'MaQTV'=>null,'MaTT'=>2]);
+            $donhang->update(['MaNVGH'=>$MaNVGH,'MaQL'=>\auth()->user()->MaND,'MaQTV'=>null,'MaTT'=>2]);
         }
-        return redirect()->back();
+        $donhangs = DonHang::where('MaTT',1)->orderby('MaDH','desc')->get();
+        $nhanviengiaohangs = NguoiDung::where('MaLND',5)->get();
+        return view('admin.donhang.partials.cardXuLy',compact(['donhangs','nhanviengiaohangs']));
+    }
+
+    public function updatexulydonhang(Request $request, $MaDH)
+    {
+        $MaNVGH = $request->MaNVGH;
+
+        $donhang = DonHang::find($MaDH);
+
+        $ngnhap = \auth()->user();
+        $nhanviengiaohangs = NguoiDung::where('MaLND',5)->get();
+
+        $Quyen = \auth()->user()->MaLND;
+        if ($donhang && $Quyen == 2)
+        {
+            $donhang->update(['MaNVGH'=>$MaNVGH,'MaQTV'=> \auth()->user()->MaND,'MaQL'=>null,'MaTT'=>2]);
+            $donhangs = DonHang::where('MaTT',2)->orderby('MaDH','desc')->get();
+            return view('admin.donhang.partials.cardXuLy',compact(['donhangs','nhanviengiaohangs']));
+        }
+        //quản lý chỉ được sửa cái do quản lý xử lý
+        if ($ngnhap->canEditGH($donhang)==true)
+        {
+            $donhang->update(['MaNVGH'=>$MaNVGH,'MaQL'=>\auth()->user()->MaND,'MaQTV'=>null,'MaTT'=>2]);
+            $donhangs = DonHang::where('MaTT',2)->orderby('MaDH','desc')->get();
+            return view('admin.donhang.partials.cardXuLy',compact(['donhangs','nhanviengiaohangs']));
+        }
+//        dd($ngnhap->canEditGH($donhang));
+
+        $donhangs = DonHang::where('MaTT',2)->orderby('MaDH','desc')->get();
+        return view('admin.donhang.partials.cardXuLy',compact(['donhangs','nhanviengiaohangs']))
+            ->with('error' ,'Bạn không đủ điều kiện để thực hiện quyền này! <br> Vui lòng liên hệ admin!');
     }
 
     public function xuathang($MaDH)
@@ -131,7 +146,7 @@ class DonHangController extends Controller
         if ($donhang && $MaLND == 4){
             $donhang->update(['MaTT'=>3,'MaNVK'=>$NVK->MaND]);
         }else{
-            redirect()->route('admin.404');
+            return redirect()->route('admin.404');
         }
         return redirect()->back();
 

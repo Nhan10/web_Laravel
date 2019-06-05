@@ -11,7 +11,8 @@
       <change afterPath="$PROJECT_DIR$/resources/views/admin/donhang/chitietcard.blade.php" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/resources/views/admin/donhang/partials/card.blade.php" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/resources/views/admin/donhang/partials/cardDanggiao.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/admin/donhang/partials/cardXuly.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/admin/donhang/partials/cardXuLy.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/admin/donhang/partials/cardXulyajax.blade.php" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/resources/views/admin/donhang/partials/forbidden.blade.php" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/resources/views/admin/layouts/404.blade.php" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/resources/views/admin/nguoidung/partials/modalPhanQuyen.blade.php" afterDir="false" />
@@ -113,8 +114,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/routes/web.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="281">
-              <caret line="151" column="52" lean-forward="true" selection-start-line="151" selection-start-column="52" selection-end-line="151" selection-end-column="52" />
+            <state relative-caret-position="221">
+              <caret line="151" column="81" lean-forward="true" selection-start-line="151" selection-start-column="81" selection-end-line="151" selection-end-column="81" />
             </state>
           </provider>
         </entry>
@@ -122,8 +123,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/resources/views/admin/donhang/cardQLandAD.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="500">
-              <caret line="49" column="66" selection-start-line="49" selection-start-column="66" selection-end-line="49" selection-end-column="66" />
+            <state relative-caret-position="101">
+              <caret line="31" column="38" selection-start-line="31" selection-start-column="38" selection-end-line="31" selection-end-column="38" />
             </state>
           </provider>
         </entry>
@@ -131,8 +132,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/DonHangController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-998">
-              <caret line="22" column="63" selection-start-line="22" selection-start-column="63" selection-end-line="22" selection-end-column="63" />
+            <state relative-caret-position="560">
+              <caret line="137" column="107" lean-forward="true" selection-start-line="137" selection-start-column="107" selection-end-line="137" selection-end-column="107" />
               <folding>
                 <element signature="e#40#58#0#PHP" expanded="true" />
               </folding>
@@ -141,28 +142,46 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/views/admin/donhang/partials/cardXuly.blade.php">
+        <entry file="file://$PROJECT_DIR$/resources/views/admin/donhang/partials/cardXuLy.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="98">
-              <caret line="37" column="76" selection-start-line="37" selection-start-column="76" selection-end-line="37" selection-end-column="76" />
+            <state relative-caret-position="300">
+              <caret line="18" column="24" selection-start-line="18" selection-start-column="24" selection-end-line="18" selection-end-column="24" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/views/admin/donhang/cardxuathang.blade.php">
+        <entry file="file://$PROJECT_DIR$/resources/views/admin/donhang/partials/cardDanggiao.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="315">
-              <caret line="74" column="81" selection-start-line="74" selection-start-column="81" selection-end-line="74" selection-end-column="81" />
+            <state relative-caret-position="175">
+              <caret line="9" column="25" selection-start-line="9" selection-start-column="25" selection-end-line="9" selection-end-column="25" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/views/admin/donhang/chitietcard.blade.php">
+        <entry file="file://$PROJECT_DIR$/resources/views/admin/donhang/partials/cardDaxuly.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-119">
-              <caret line="187" column="53" lean-forward="true" selection-start-line="187" selection-start-column="53" selection-end-line="187" selection-end-column="53" />
+            <state relative-caret-position="900">
+              <caret line="45" column="73" selection-start-line="45" selection-start-column="73" selection-end-line="45" selection-end-column="73" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/resources/views/admin/donhang/partials/card.blade.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="600">
+              <caret line="30" column="24" selection-start-line="30" selection-start-column="24" selection-end-line="30" selection-end-column="24" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/NguoiDung.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="495">
+              <caret line="112" column="52" selection-start-line="112" selection-start-column="52" selection-end-line="112" selection-end-column="52" />
             </state>
           </provider>
         </entry>
@@ -185,11 +204,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/resources/views/front_end/pages/category.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/front_end/pages/home.blade.php" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/front_end/SearchController.php" />
-        <option value="$PROJECT_DIR$/resources/views/admin/sanpham/show.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/front_end/pages/detail.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/front_end/pages/cart.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/front_end/pages/order.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/front_end/pages/personal.blade.php" />
@@ -213,7 +227,6 @@
         <option value="$PROJECT_DIR$/app/Http/Controllers/NguoiDungController.php" />
         <option value="$PROJECT_DIR$/resources/views/admin/layouts/sidebar.blade.php" />
         <option value="$PROJECT_DIR$/config/app.php" />
-        <option value="$PROJECT_DIR$/app/NguoiDung.php" />
         <option value="$PROJECT_DIR$/app/Http/Middleware/isQuanly.php" />
         <option value="$PROJECT_DIR$/app/Http/Middleware/isKhachhang.php" />
         <option value="$PROJECT_DIR$/app/Http/Middleware/isAdmin.php" />
@@ -224,17 +237,23 @@
         <option value="$PROJECT_DIR$/resources/views/admin/layouts/topbar.blade.php" />
         <option value="$PROJECT_DIR$/app/Http/Middleware/isAdmin_Quanly_kho.php" />
         <option value="$PROJECT_DIR$/app/Http/Kernel.php" />
-        <option value="$PROJECT_DIR$/resources/views/admin/donhang/partials/cardDaxuly.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/admin/sanpham/list.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/admin/donhang/partials/forbidden.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/admin/donhang/partials/card.blade.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" />
         <option value="$PROJECT_DIR$/resources/views/admin/layouts/404.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/admin/donhang/list.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/admin/donhang/chitietcard.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/admin/donhang/cardgiaohang.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/admin/donhang/cardxuathang.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/admin/donhang/partials/card.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/admin/donhang/cardQLandAD.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/admin/donhang/partials/cardDanggiao.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/admin/donhang/partials/cardXuly.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/admin/loaisanpham/edit.blade.php" />
         <option value="$PROJECT_DIR$/routes/web.php" />
+        <option value="$PROJECT_DIR$/resources/views/admin/donhang/partials/cardDaxuly.blade.php" />
+        <option value="$PROJECT_DIR$/app/NguoiDung.php" />
+        <option value="$PROJECT_DIR$/resources/views/admin/donhang/partials/cardXuLy.blade.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/DonHangController.php" />
       </list>
     </option>
@@ -332,7 +351,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -446,6 +464,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -605,16 +624,19 @@
       <workItem from="1559461038333" duration="5301000" />
       <workItem from="1559482575937" duration="4160000" />
       <workItem from="1559537288124" duration="5592000" />
+      <workItem from="1559571000991" duration="3606000" />
+      <workItem from="1559628285906" duration="7891000" />
+      <workItem from="1559738625954" duration="7064000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="572773000" />
+    <option name="totallyTimeSpent" value="591334000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.21744967" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.21543624" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="npm" order="2" side_tool="true" />
       <window_info id="Favorites" order="3" side_tool="true" />
@@ -640,65 +662,6 @@
     <option name="version" value="1" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/resources/views/admin/layouts/logoutmodal.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="80">
-          <caret line="4" column="82" selection-start-line="4" selection-start-column="82" selection-end-line="4" selection-end-column="82" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/front_end/pages/partials/menukhachhang.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="301">
-          <caret line="17" lean-forward="true" selection-start-line="17" selection-end-line="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/admin/nhacungcap/edit.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="200">
-          <caret line="40" column="26" lean-forward="true" selection-start-line="40" selection-start-column="26" selection-end-line="40" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/front_end/pages/capnhatthongtinnguoidung.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1459">
-          <caret line="95" column="26" lean-forward="true" selection-start-line="95" selection-start-column="26" selection-end-line="95" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/admin/thongtincanhan.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="9" column="10" lean-forward="true" selection-start-line="9" selection-start-column="10" selection-end-line="9" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/front_end/pages/doimatkhau.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="420">
-          <caret line="140" column="38" lean-forward="true" selection-start-line="140" selection-start-column="38" selection-end-line="140" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/admin/doimatkhau.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="520">
-          <caret line="26" column="81" selection-start-line="26" selection-start-column="81" selection-end-line="26" selection-end-column="81" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/NguoiDungController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-3705">
-          <caret line="11" column="36" selection-start-line="11" selection-start-column="36" selection-end-line="11" selection-end-column="36" />
-          <folding>
-            <element signature="e#40#55#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/config/auth.php">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -713,13 +676,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="360">
           <caret line="18" column="42" selection-start-line="18" selection-start-column="42" selection-end-line="18" selection-end-column="42" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/NguoiDung.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="260">
-          <caret line="89" column="30" lean-forward="true" selection-start-line="89" selection-start-column="30" selection-end-line="89" selection-end-column="30" />
         </state>
       </provider>
     </entry>
@@ -917,18 +873,19 @@
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/front_end/SearchController.php">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/admin/donhang/partials/card.blade.php">
+    <entry file="file://$PROJECT_DIR$/resources/views/admin/donhang/partials/forbidden.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="500">
-          <caret line="25" column="50" selection-start-line="25" selection-start-column="50" selection-end-line="25" selection-end-column="50" />
+        <state>
+          <caret column="8" selection-start-column="8" selection-end-column="8" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/admin/donhang/chitietcard.blade.php">
+    <entry file="file://$PROJECT_DIR$/app/CTDonHang.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/DonHang.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-119">
-          <caret line="187" column="53" lean-forward="true" selection-start-line="187" selection-start-column="53" selection-end-line="187" selection-end-column="53" />
-        </state>
+        <state relative-caret-position="-459" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/admin/donhang/cardgiaohang.blade.php">
@@ -940,57 +897,108 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/admin/donhang/cardxuathang.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="74" column="81" selection-start-line="74" selection-start-column="81" selection-end-line="74" selection-end-column="81" />
+        <state relative-caret-position="195">
+          <caret line="62" column="51" lean-forward="true" selection-start-line="62" selection-start-column="51" selection-end-line="62" selection-end-column="51" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/admin/donhang/partials/cardDanggiao.blade.php">
+    <entry file="file://$PROJECT_DIR$/resources/views/admin/donhang/chitietcard.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-100">
-          <caret line="10" column="40" lean-forward="true" selection-start-line="10" selection-start-column="40" selection-end-line="10" selection-end-column="40" />
+        <state relative-caret-position="20">
+          <caret line="187" column="53" selection-start-line="187" selection-start-column="53" selection-end-line="187" selection-end-column="53" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/admin/donhang/partials/card.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="600">
+          <caret line="30" column="24" selection-start-line="30" selection-start-column="24" selection-end-line="30" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/admin/donhang/cardUpdateNvgh.blade.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/admin/loaisanpham/edit.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="495">
+          <caret line="40" column="35" lean-forward="true" selection-start-line="40" selection-start-column="35" selection-end-line="40" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/admin/donhang/partials/cardXulyajax.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="375">
+          <caret line="66" column="38" lean-forward="true" selection-start-line="66" selection-start-column="38" selection-end-line="66" selection-end-column="38" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/admin/donhang/partials/cardDaxuly.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-40">
-          <caret line="13" column="13" lean-forward="true" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
+        <state relative-caret-position="900">
+          <caret line="45" column="73" selection-start-line="45" selection-start-column="73" selection-end-line="45" selection-end-column="73" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/admin/donhang/partials/cardXuly.blade.php">
+    <entry file="file://$PROJECT_DIR$/app/NguoiDung.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="98">
-          <caret line="37" column="76" selection-start-line="37" selection-start-column="76" selection-end-line="37" selection-end-column="76" />
+        <state relative-caret-position="495">
+          <caret line="112" column="52" selection-start-line="112" selection-start-column="52" selection-end-line="112" selection-end-column="52" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/admin/donhang/partials/forbidden.blade.php">
+    <entry file="file://$PROJECT_DIR$/resources/views/admin/donhang/partials/cardDanggiao.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="8" selection-start-column="8" selection-end-column="8" />
+        <state relative-caret-position="175">
+          <caret line="9" column="25" selection-start-line="9" selection-start-column="25" selection-end-line="9" selection-end-column="25" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/routes/web.php">
+    <entry file="file://$PROJECT_DIR$/config/session.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="281">
-          <caret line="151" column="52" lean-forward="true" selection-start-line="151" selection-start-column="52" selection-end-line="151" selection-end-column="52" />
+        <state relative-caret-position="-3445" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/DanhMucSPController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1980" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/NguoiDungController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-3100">
+          <caret line="11" column="36" selection-start-line="11" selection-start-column="36" selection-end-line="11" selection-end-column="36" />
+          <folding>
+            <element signature="e#40#55#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/admin/donhang/partials/cardXuLy.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="18" column="24" selection-start-line="18" selection-start-column="24" selection-end-line="18" selection-end-column="24" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/admin/donhang/cardQLandAD.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="500">
-          <caret line="49" column="66" selection-start-line="49" selection-start-column="66" selection-end-line="49" selection-end-column="66" />
+        <state relative-caret-position="101">
+          <caret line="31" column="38" selection-start-line="31" selection-start-column="38" selection-end-line="31" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/web.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="151" column="81" lean-forward="true" selection-start-line="151" selection-start-column="81" selection-end-line="151" selection-end-column="81" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/DonHangController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-998">
-          <caret line="22" column="63" selection-start-line="22" selection-start-column="63" selection-end-line="22" selection-end-column="63" />
+        <state relative-caret-position="560">
+          <caret line="137" column="107" lean-forward="true" selection-start-line="137" selection-start-column="107" selection-end-line="137" selection-end-column="107" />
           <folding>
             <element signature="e#40#58#0#PHP" expanded="true" />
           </folding>
